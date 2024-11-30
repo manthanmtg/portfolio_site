@@ -51,33 +51,6 @@ document.querySelectorAll('section').forEach((section) => {
     observer.observe(section);
 });
 
-// Skills animation
-const skills = [
-    { name: 'JavaScript', level: 90 },
-    { name: 'Python', level: 85 },
-    { name: 'Java', level: 80 },
-    { name: 'React', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'SQL', level: 85 },
-    { name: 'AWS', level: 75 },
-    { name: 'Docker', level: 70 }
-];
-
-const skillsGrid = document.querySelector('.skills-grid');
-if (skillsGrid) {
-    skills.forEach(skill => {
-        const skillElement = document.createElement('div');
-        skillElement.classList.add('skill-item');
-        skillElement.innerHTML = `
-            <div class="skill-name">${skill.name}</div>
-            <div class="skill-bar">
-                <div class="skill-level" style="width: ${skill.level}%"></div>
-            </div>
-        `;
-        skillsGrid.appendChild(skillElement);
-    });
-}
-
 // Projects data
 const projects = [
     {
