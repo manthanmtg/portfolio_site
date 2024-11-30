@@ -223,61 +223,86 @@ body {
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.7;
-    animation: fadeInUp 1s ease-out 1s backwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     z-index: 10;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.mouse {
-    width: 26px;
-    height: 42px;
-    border: 2px solid var(--text-color-light);
-    border-radius: 15px;
-    position: relative;
-    margin: 0 auto 1rem;
+.scroll-indicator:hover {
+    opacity: 1 !important;
 }
 
-.wheel {
-    width: 4px;
-    height: 8px;
-    background: var(--text-color-light);
-    border-radius: 2px;
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 2s infinite;
+.scroll-text {
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    animation: fadeInOut 2s ease-in-out infinite;
 }
 
-.arrow {
+.scroll-arrows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scroll-arrows span {
+    display: block;
     width: 10px;
     height: 10px;
-    border-right: 2px solid var(--text-color-light);
-    border-bottom: 2px solid var(--text-color-light);
+    border-right: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
     transform: rotate(45deg);
-    margin: 0 auto;
-    animation: arrowBounce 2s infinite;
+    animation: arrowDown 2s infinite;
+    opacity: 0;
 }
 
-@keyframes scroll {
-    0% { transform: translate(-50%, 0); opacity: 1; }
-    100% { transform: translate(-50%, 15px); opacity: 0; }
+.scroll-arrows span:nth-child(1) {
+    animation-delay: 0s;
 }
 
-@keyframes arrowBounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
-    40% { transform: translateY(-5px) rotate(45deg); }
-    60% { transform: translateY(-3px) rotate(45deg); }
+.scroll-arrows span:nth-child(2) {
+    animation-delay: 0.2s;
 }
 
-@keyframes fadeInUp {
-    from {
+.scroll-arrows span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes arrowDown {
+    0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: rotate(45deg) translate(-20px, -20px);
     }
-    to {
+    50% {
         opacity: 1;
-        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Hide scroll indicator when user has scrolled */
+@media (max-height: 700px) {
+    .scroll-indicator {
+        display: none;
     }
 }
 

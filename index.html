@@ -42,10 +42,12 @@
                 <a href="mailto:manthan.gowda@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
+                <span class="scroll-text">Scroll to explore</span>
+                <div class="scroll-arrows">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="arrow"></div>
             </div>
         </div>
         <div class="hero-background">
@@ -265,6 +267,56 @@
             <p>&copy; 2024 Manthan B Y. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Hide scroll indicator on scroll
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        let scrollTimeout;
+
+        function isEndOfPage() {
+            return (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
+        }
+
+        function hideScrollIndicator() {
+            scrollIndicator.style.opacity = '0';
+        }
+
+        function showScrollIndicator() {
+            // Don't show if at the end of the page
+            if (isEndOfPage()) {
+                hideScrollIndicator();
+                return;
+            }
+            scrollIndicator.style.opacity = '1';
+        }
+
+        window.addEventListener('scroll', () => {
+            // Hide while scrolling
+            hideScrollIndicator();
+            
+            // Clear any existing timeout
+            clearTimeout(scrollTimeout);
+            
+            // Set new timeout to show indicator after scrolling stops
+            if (!isEndOfPage()) {
+                scrollTimeout = setTimeout(showScrollIndicator, 1500);
+            }
+        });
+
+        // Show initially if not at the end of page
+        if (!isEndOfPage()) {
+            showScrollIndicator();
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (!isEndOfPage() && !scrollTimeout) {
+                showScrollIndicator();
+            } else {
+                hideScrollIndicator();
+            }
+        });
+    </script>
 
     <script src="js/main.js"></script>
 </body>
