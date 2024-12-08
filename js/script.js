@@ -191,10 +191,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (researchGrid) {
                 researchGrid.innerHTML = data.research.papers
                     .map(paper => `
-                        <div class="research-card">
+                        <div class="paper-card">
                             <h3>${paper.title}</h3>
                             <p>${paper.publication}</p>
-                            <a href="${paper.link}" class="paper-link">Read Paper</a>
+                            <a href="${paper.link}" class="paper-link" target="_blank" rel="noopener noreferrer">
+                                View Paper
+                            </a>
                         </div>
                     `).join('');
             }

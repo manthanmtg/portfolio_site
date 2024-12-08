@@ -161,14 +161,9 @@
         "title": "Research Papers",
         "papers": [
             {
-                "title": "Machine Learning Approaches in Code Completion Systems",
-                "publication": "Published in International Conference on Software Engineering (ICSE) 2023",
-                "link": "#"
-            },
-            {
-                "title": "Optimizing Distributed Systems Performance: A Case Study",
-                "publication": "Published in ACM SIGOPS Operating Systems Review 2022",
-                "link": "#"
+                "title": "Simulation and Analysis of Intrusion Resilient Smart Metering System",
+                "publication": "Published in Disruptive Technologies for Big Data and Cloud Applications · Proceedings of ICBDCC 2021",
+                "link": "https://link.springer.com/chapter/10.1007/978-981-19-2177-3_71"
             }
         ]
     },
