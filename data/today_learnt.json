@@ -10,8 +10,12 @@
           "url": "https://www.youtube.com/watch?v=jXWIxk2brfk"
         },
         {
-          "title": "Medium Article",
+          "title": "Medium Article Part 1",
           "url": "https://bury-thomas.medium.com/mastering-python-project-management-with-uv-part1-its-time-to-ditch-poetry-c2590091d90a"
+        },
+        {
+          "title": "Medium Article Part 2",
+          "url": "https://bury-thomas.medium.com/mastering-python-project-management-with-uv-part-2-deep-dives-and-advanced-use-1e2540e6f4a6"
         }
       ],
       "difficulty": "medium",
