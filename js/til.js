@@ -84,9 +84,10 @@ function renderTagCloud(tags) {
     tags.sort().forEach(tag => {
         const tagElement = document.createElement('span');
         tagElement.textContent = tag;
-        tagElement.classList.add('tag-pill', 'bg-gray-100', 'text-gray-800', 'dark:bg-gray-700', 'dark:text-gray-100', 'hover:bg-primary', 'hover:text-white');
+        tagElement.classList.add('tag-pill', 'bg-gray-100', 'text-gray-800', 'dark:bg-gray-700', 'dark:text-gray-100');
         
         if (activeFilters.tags.has(tag)) {
+            tagElement.classList.remove('bg-gray-100', 'text-gray-800', 'dark:bg-gray-700', 'dark:text-gray-100');
             tagElement.classList.add('bg-primary', 'text-white');
         }
         
