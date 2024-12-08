@@ -132,10 +132,51 @@
 
 ---
 
-## Vision & Roadmap
-### **Long-Term Vision**:
-- Elevate businesses to the top of the data science hierarchy of needs.
-- Unify data and language for seamless interaction and analysis.
+## Semantic Layer Vision
+
+### Purpose
+- Bridge the gap between **data** (used by computers/analysts) and **language** (used by humans).
+- Elevate data workflows to enable meaningful, business-focused outcomes.
+
+### Strategic Goals
+1. **Enable Consistent Metrics**:
+   - Provide unified definitions of metrics to ensure consistency across all tools and teams.
+
+2. **Push Up the Data Hierarchy of Needs**:
+   - Move beyond foundational tasks (e.g., data collection, storage, transformation) to deliver real business value.
+   - Help organizations achieve impactful data applications like exploratory analytics, operational reporting, and machine learning.
+
+3. **Optimize Data ROI**:
+   - Reduce the cost of querying and accessing data while maximizing the benefit.
+   - Empower organizations to make more ROI-positive investments in data.
+
+### Key Pillars
+1. **Expressiveness**:
+   - Support for all metric and data modeling techniques.
+   - Flexibility to define any metric needed for business insights.
+
+2. **Performance**:
+   - Deliver data insights at the "speed of thought".
+   - Low-latency, high-performance query responses.
+
+3. **Connectivity**:
+   - Integrate seamlessly with diverse tools across the data ecosystem.
+   - Enable usage in tools where business users and analysts are already working.
+
+4. **Governance and Security**:
+   - Ensure compliance with data access policies.
+   - Provide granular access controls to secure sensitive data.
+
+5. **Rich Metadata Context**:
+   - Surface detailed metadata for better understanding and debugging.
+   - Enable annotations to metrics that propagate across tools.
+
+6. **Developer Experience**:
+   - Maintain error-free, user-friendly workflows for analytics engineers.
+   - Leverage engineering best practices like version control and dry code.
+
+### Long-Term Goal
+- Create a semantic mapping that automates the translation from data to human language, unlocking **higher-value applications** and **insights** at scale.
 
 ### **Future Developments**:
 1. **Caching**:

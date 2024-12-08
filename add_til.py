@@ -127,9 +127,20 @@ def main():
         
         # Git commands
         print("\nRunning git commands...")
+        if new_entry.get('notes_md'):
+            notes_path = os.path.join("data", new_entry['notes_md'])
+            os.system(f'git add {notes_path}')
+            print(f"Added notes file: {notes_path}")
+        
         os.system('git add data/today_learnt.json')
-        os.system('git commit -m "Added new TIL entry"')
+        print("Added today_learnt.json")
+        
+        os.system('git commit -m "Added new TIL entry with notes"')
+        print("Committed changes")
+        
         os.system('git push origin main')
+        print("Pushed to remote")
+        
         print("Git operations completed!")
     except Exception as e:
         print(f"\nError saving file: {e}")
