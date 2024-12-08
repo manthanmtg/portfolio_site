@@ -28,7 +28,7 @@
             <blockquote class="personal-quote"></blockquote>
             <div class="social-links"></div>
             <div class="scroll-indicator">
-                <span class="scroll-text">Scroll to explore</span>
+                <span class="scroll-text"></span>
                 <div class="scroll-arrows">
                     <span></span>
                     <span></span>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="skills-section">
-                    <h3>Technical Expertise</h3>
+                    <h3></h3>
                     <div class="skills-grid"></div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
     <!-- Research Section -->
     <section id="research" class="research">
         <div class="container">
-            <h2 class="section-title">Research</h2>
+            <h2 class="section-title"></h2>
             <div class="research-grid"></div>
         </div>
     </section>
@@ -89,7 +89,7 @@
     <!-- Articles Section -->
     <section id="articles" class="articles">
         <div class="container">
-            <h2 class="section-title">Published Articles</h2>
+            <h2 class="section-title"></h2>
             <div class="articles-grid"></div>
         </div>
     </section>
@@ -97,7 +97,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
+            <h2 class="section-title"></h2>
             <div class="contact-content"></div>
         </div>
     </section>
@@ -108,56 +108,6 @@
             <p class="copyright"></p>
         </div>
     </footer>
-
-    <script>
-        // Hide scroll indicator on scroll
-        const scrollIndicator = document.querySelector('.scroll-indicator');
-        let scrollTimeout;
-
-        function isEndOfPage() {
-            return (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
-        }
-
-        function hideScrollIndicator() {
-            scrollIndicator.style.opacity = '0';
-        }
-
-        function showScrollIndicator() {
-            // Don't show if at the end of the page
-            if (isEndOfPage()) {
-                hideScrollIndicator();
-                return;
-            }
-            scrollIndicator.style.opacity = '1';
-        }
-
-        window.addEventListener('scroll', () => {
-            // Hide while scrolling
-            hideScrollIndicator();
-            
-            // Clear any existing timeout
-            clearTimeout(scrollTimeout);
-            
-            // Set new timeout to show indicator after scrolling stops
-            if (!isEndOfPage()) {
-                scrollTimeout = setTimeout(showScrollIndicator, 1500);
-            }
-        });
-
-        // Show initially if not at the end of page
-        if (!isEndOfPage()) {
-            showScrollIndicator();
-        }
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (!isEndOfPage() && !scrollTimeout) {
-                showScrollIndicator();
-            } else {
-                hideScrollIndicator();
-            }
-        });
-    </script>
 
     <script src="js/script.js"></script>
 </body>

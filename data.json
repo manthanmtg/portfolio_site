@@ -2,6 +2,9 @@
     "meta": {
         "title": "Manthan B Y - Software Engineer"
     },
+    "ui": {
+        "scrollText": "Scroll to explore"
+    },
     "navigation": {
         "logo": "MBY",
         "links": [
@@ -42,6 +45,7 @@
         "title": "About Me",
         "subtitle": "Software Engineer at LinkedIn",
         "description": "I'm a passionate software engineer specializing in building scalable distributed systems and data platforms. Currently at LinkedIn, I focus on accelerating data-driven decision-making through robust engineering solutions.",
+        "skillsTitle": "Technical Expertise",
         "highlights": [
             {
                 "icon": "fas fa-code",

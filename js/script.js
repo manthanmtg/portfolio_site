@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </a>
             `).join('');
         
+        // Update scroll text
+        document.querySelector('.scroll-text').textContent = data.ui.scrollText;
+        
         // Update about section
         document.querySelector('#about .section-title').textContent = data.about.title;
         document.querySelector('.about-text h3').textContent = data.about.subtitle;
@@ -44,6 +47,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <p>${highlight.description}</p>
                 </div>
             `).join('');
+
+        // Update skills title
+        document.querySelector('.skills-section h3').textContent = data.about.skillsTitle;
         
         // Update skills
         const skillsGrid = document.querySelector('.skills-grid');
@@ -134,26 +140,49 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // Scroll indicator functionality
+const scrollIndicator = document.querySelector('.scroll-indicator');
+let scrollTimeout;
+
 function isEndOfPage() {
-    return (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
+    return (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
 }
 
 function hideScrollIndicator() {
-    document.querySelector('.scroll-indicator').style.opacity = '0';
+    scrollIndicator.style.opacity = '0';
 }
 
 function showScrollIndicator() {
-    if (!isEndOfPage()) {
-        document.querySelector('.scroll-indicator').style.opacity = '1';
+    // Don't show if at the end of the page
+    if (isEndOfPage()) {
+        hideScrollIndicator();
+        return;
     }
+    scrollIndicator.style.opacity = '1';
 }
 
 window.addEventListener('scroll', () => {
+    // Hide while scrolling
     hideScrollIndicator();
-    clearTimeout(window.scrollTimeout);
-    window.scrollTimeout = setTimeout(showScrollIndicator, 1000);
     
-    if (isEndOfPage()) {
+    // Clear any existing timeout
+    clearTimeout(scrollTimeout);
+    
+    // Set new timeout to show indicator after scrolling stops
+    if (!isEndOfPage()) {
+        scrollTimeout = setTimeout(showScrollIndicator, 1500);
+    }
+});
+
+// Show initially if not at the end of page
+if (!isEndOfPage()) {
+    showScrollIndicator();
+}
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (!isEndOfPage() && !scrollTimeout) {
+        showScrollIndicator();
+    } else {
         hideScrollIndicator();
     }
 });
