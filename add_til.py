@@ -77,7 +77,7 @@ def get_notes_path():
             print(f"Warning: File '{full_path}' does not exist!")
             if get_input("Continue anyway? (y/n)", default="n").lower() != 'y':
                 continue
-        return path
+        return os.path.join("..", full_path)
 
 def add_til_entry():
     print_header("Add TIL (Today I Learned) Entry")
