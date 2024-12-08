@@ -90,12 +90,16 @@ function renderTagCloud(tags) {
             tagElement.classList.add('bg-primary', 'text-white');
         }
         
-        tagElement.addEventListener('click', () => {
+        tagElement.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event from bubbling up
+            
             if (activeFilters.tags.has(tag)) {
                 activeFilters.tags.delete(tag);
                 tagElement.classList.remove('bg-primary', 'text-white');
+                tagElement.classList.add('bg-gray-100', 'text-gray-800', 'dark:bg-gray-700', 'dark:text-gray-100');
             } else {
                 activeFilters.tags.add(tag);
+                tagElement.classList.remove('bg-gray-100', 'text-gray-800', 'dark:bg-gray-700', 'dark:text-gray-100');
                 tagElement.classList.add('bg-primary', 'text-white');
             }
             currentPage = 1;
