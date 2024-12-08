@@ -38,6 +38,35 @@
         "system-design"
       ],
       "notes_md": "../data/notes/api_gateway_notes.md"
+    },
+    {
+      "date": "2024-12-08",
+      "title": "Dbt Sematic Layer, powered by MetricFlow",
+      "content": "The DBT Semantic Layer enables consistent, trusted, and scalable metrics across tools by bridging data and human language, empowering organizations to unlock higher-value insights efficiently.",
+      "references": [
+        {
+          "title": "YT Video",
+          "url": "https://www.youtube.com/watch?v=2Qo5_CIsSH4"
+        },
+        {
+          "title": "dbt Labs | Sematic Layer",
+          "url": "https://www.getdbt.com/product/semantic-layer"
+        },
+        {
+          "title": "MetricFlow Repository",
+          "url": "https://github.com/dbt-labs/metricflow"
+        },
+        {
+          "title": "MetricFlow Docs",
+          "url": "https://docs.getdbt.com/docs/build/about-metricflow"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "data-analytics",
+        "data-platform"
+      ],
+      "notes_md": "notes/dbt_sematic_layer_yt_video.md"
     }
   ]
 }
