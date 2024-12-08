@@ -11,7 +11,30 @@
         }
       ],
       "difficulty": "easy",
-      "tags": ["python", "strings", "performance"]
+      "tags": [
+        "python",
+        "strings",
+        "performance"
+      ]
+    },
+    {
+      "date": "2024-12-08",
+      "title": "Mastering Python Project Management with uv",
+      "content": "Learned about new way of project management in Python using uv. Learnt, it is very fast compared to normal pip operations.",
+      "references": [
+        {
+          "title": "Youtube Video",
+          "url": "https://www.youtube.com/watch?v=jXWIxk2brfk"
+        },
+        {
+          "title": "Medium Article",
+          "url": "https://bury-thomas.medium.com/mastering-python-project-management-with-uv-part1-its-time-to-ditch-poetry-c2590091d90a"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "python"
+      ]
     },
     {
       "date": "2024-12-07",
@@ -24,7 +47,11 @@
         }
       ],
       "difficulty": "hard",
-      "tags": ["react", "performance", "javascript"]
+      "tags": [
+        "react",
+        "performance",
+        "javascript"
+      ]
     },
     {
       "date": "2024-12-05",
@@ -37,7 +64,10 @@
         }
       ],
       "difficulty": "medium",
-      "tags": ["css", "responsive-design"]
+      "tags": [
+        "css",
+        "responsive-design"
+      ]
     },
     {
       "date": "2024-12-03",
@@ -50,7 +80,10 @@
         }
       ],
       "difficulty": "medium",
-      "tags": ["git", "version-control"]
+      "tags": [
+        "git",
+        "version-control"
+      ]
     },
     {
       "date": "2024-11-30",
@@ -63,7 +96,11 @@
         }
       ],
       "difficulty": "hard",
-      "tags": ["typescript", "javascript", "programming"]
+      "tags": [
+        "typescript",
+        "javascript",
+        "programming"
+      ]
     },
     {
       "date": "2024-11-28",
@@ -76,7 +113,11 @@
         }
       ],
       "difficulty": "medium",
-      "tags": ["docker", "devops", "optimization"]
+      "tags": [
+        "docker",
+        "devops",
+        "optimization"
+      ]
     },
     {
       "date": "2024-11-25",
@@ -89,7 +130,11 @@
         }
       ],
       "difficulty": "hard",
-      "tags": ["security", "javascript", "web-api"]
+      "tags": [
+        "security",
+        "javascript",
+        "web-api"
+      ]
     },
     {
       "date": "2024-11-22",
@@ -102,7 +147,10 @@
         }
       ],
       "difficulty": "easy",
-      "tags": ["css", "selectors"]
+      "tags": [
+        "css",
+        "selectors"
+      ]
     },
     {
       "date": "2024-11-20",
@@ -115,7 +163,11 @@
         }
       ],
       "difficulty": "hard",
-      "tags": ["python", "async", "performance"]
+      "tags": [
+        "python",
+        "async",
+        "performance"
+      ]
     },
     {
       "date": "2024-11-18",
@@ -128,7 +180,11 @@
         }
       ],
       "difficulty": "medium",
-      "tags": ["rust", "programming", "memory-management"]
+      "tags": [
+        "rust",
+        "programming",
+        "memory-management"
+      ]
     }
   ]
 }
