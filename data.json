@@ -72,18 +72,14 @@
                 {"name": "JavaScript", "icon": "fab fa-js"},
                 {"name": "HTML5", "icon": "fab fa-html5"},
                 {"name": "CSS3", "icon": "fab fa-css3-alt"},
-                {"name": "SQL", "icon": "fas fa-database"},
-                {"name": "Rust", "icon": "fab fa-rust"}
+                {"name": "SQL", "icon": "fas fa-database"}
             ],
             "Frameworks & Tools": [
+                {"name": "Docker", "icon": "fab fa-docker"},
                 {"name": "React", "icon": "fab fa-react"},
-                {"name": "Vue.js", "icon": "fab fa-vuejs"},
-                {"name": "Angular", "icon": "fab fa-angular"},
-                {"name": "Node.js", "icon": "fab fa-node-js"},
-                {"name": "Spring Boot", "icon": "fas fa-leaf"},
-                {"name": "Django", "icon": "fab fa-python"},
                 {"name": "FastAPI", "icon": "fas fa-fire"},
-                {"name": "Gin", "icon": "fab fa-golang"}
+                {"name": "Flask", "icon": "fas fa-flask"},
+                {"name": "Kafka", "icon": "fas fa-kafka"}
             ],
             "Cloud & DevOps": [
                 {"name": "AWS", "icon": "fab fa-aws"},
@@ -91,9 +87,7 @@
                 {"name": "Azure", "icon": "fab fa-microsoft"},
                 {"name": "Kubernetes", "icon": "fas fa-dharmachakra"},
                 {"name": "Jenkins", "icon": "fab fa-jenkins"},
-                {"name": "GitHub Actions", "icon": "fab fa-github"},
-                {"name": "ArgoCD", "icon": "fas fa-infinity"},
-                {"name": "Terraform", "icon": "fas fa-network-wired"}
+                {"name": "GitHub Actions", "icon": "fab fa-github"}
             ]
         }
     },
@@ -145,16 +139,16 @@
         "title": "Projects",
         "items": [
             {
-                "title": "AI-Powered Code Assistant",
-                "description": "Developed an intelligent code completion system using transformer models and static analysis",
-                "techStack": ["Python", "TensorFlow"],
-                "link": "#"
+                "title": "Paramathma Stays",
+                "description": "A modern looking, simple and clean website for a homestay",
+                "techStack": ["HTML", "TailWindCSS", "JavaScript"],
+                "link": "https://paramathmastays.in/"
             },
             {
-                "title": "Distributed Task Scheduler",
-                "description": "Built a scalable task scheduling system handling 100K+ daily tasks",
-                "techStack": ["Go", "Redis"],
-                "link": "#"
+                "title": "GoLinks Local",
+                "description": "A local go-links system that lets you access websites quickly by typing go/shortlink in your browser, similar to Google's internal tool.",
+                "techStack": ["Python", "Flask", "SQLite", "HTML"],
+                "link": "https://github.com/manthanmtg/golinks-local"
             }
         ]
     },

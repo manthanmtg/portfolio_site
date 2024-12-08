@@ -179,9 +179,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <h3>${project.title}</h3>
                         <p>${project.description}</p>
                         <div class="tech-stack">
-                            ${project.techStack.map(tech => `<span>${tech}</span>`).join('')}
+                            ${project.techStack.map(tech => `<span>${tech} </span>`).join('')}
                         </div>
-                        <a href="${project.link}" class="project-link">View Project</a>
+                        <a href="${project.link}" target="_blank" class="project-link">View Project</a>
                     </div>
                 `).join('');
         }
