@@ -120,6 +120,13 @@ def main():
         with open(blogs_file, 'w') as f:
             json.dump(data, f, indent=4)
         print("\nBlog post added successfully!")
+        
+        # Git commands
+        print("\nRunning git commands...")
+        os.system('git add data/blogs.json')
+        os.system('git commit -m "Added new blog post"')
+        os.system('git push origin main')
+        print("Git operations completed!")
     except Exception as e:
         print(f"\nError saving file: {e}")
 

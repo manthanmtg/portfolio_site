@@ -104,6 +104,13 @@ def main():
         with open(til_file, 'w') as f:
             json.dump(data, f, indent=2)
         print("\nTIL entry added successfully!")
+        
+        # Git commands
+        print("\nRunning git commands...")
+        os.system('git add data/today_learnt.json')
+        os.system('git commit -m "Added new TIL entry"')
+        os.system('git push origin main')
+        print("Git operations completed!")
     except Exception as e:
         print(f"\nError saving file: {e}")
 
