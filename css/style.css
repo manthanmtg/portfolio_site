@@ -315,14 +315,43 @@ section:nth-child(even) {
     background-color: var(--section-bg);
 }
 
-.section-title {
+/* Section Titles */
+.section-title,
+section .section-title,
+.contact-section .section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
     text-align: center;
-    font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--primary-color);
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-title::after,
+section .section-title::after,
+.contact-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
 }
 
 /* About Section */
+.about-section .section-title {
+    text-align: left;
+}
+
+.about-section .section-title::after {
+    left: 0;
+    transform: none;
+}
+
 .about-content {
     display: grid;
     grid-template-columns: 1fr;
@@ -604,14 +633,7 @@ section:nth-child(even) {
 /* Contact Section */
 .contact-section {
     text-align: center;
-    padding: 2rem 0;
-}
-
-.contact-section .section-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 3rem;
+    padding: 5rem 0;
 }
 
 .contact-grid {
@@ -1052,4 +1074,29 @@ section:nth-child(even) {
     .scroll-indicator {
         bottom: 1rem;
     }
+}
+
+/* Projects Section */
+.projects-section {
+    padding: var(--section-padding);
+}
+
+/* Skills Section */
+.skills-section {
+    padding: var(--section-padding);
+}
+
+/* Experience Section */
+.experience-section {
+    padding: var(--section-padding);
+}
+
+/* Research Papers Section */
+.papers-section {
+    padding: var(--section-padding);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: var(--section-padding);
 }
