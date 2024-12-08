@@ -22,6 +22,21 @@
       "tags": [
         "python"
       ]
+    },
+    {
+      "date": "2024-12-08",
+      "title": "What is an API Gateway?",
+      "content": "Deep dive about API Gateway",
+      "references": [
+        {
+          "title": "Article",
+          "url": "https://blog.algomaster.io/p/what-is-an-api-gateway?utm_source=substack&publication_id=2202268&post_id=152508834&utm_medium=email&utm_content=share&utm_campaign=email-share&triggerShare=true&isFreemail=true&r=as3y0&triedRedirect=true"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "system-design"
+      ]
     }
   ]
 }
