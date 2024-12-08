@@ -1,10 +1,8 @@
 // Load HTML components
 async function loadComponent(elementId, componentPath) {
     try {
-        console.log(`Loading component: ${componentPath} into ${elementId}`);
         const response = await fetch(componentPath);
         const html = await response.text();
-        console.log(`Component HTML loaded:`, html);
         
         const element = document.getElementById(elementId);
         if (!element) {
@@ -13,7 +11,6 @@ async function loadComponent(elementId, componentPath) {
         }
         
         element.innerHTML = html;
-        console.log(`Component HTML inserted into ${elementId}`);
         
         // Dispatch event when component is loaded
         document.dispatchEvent(new CustomEvent('componentLoaded', {
@@ -22,7 +19,6 @@ async function loadComponent(elementId, componentPath) {
                 path: componentPath
             }
         }));
-        console.log(`Dispatched componentLoaded event for ${elementId}`);
         
         // Update active navigation link
         const currentPath = window.location.pathname;

@@ -252,39 +252,41 @@ document.addEventListener('DOMContentLoaded', async () => {
 const scrollIndicator = document.querySelector('.scroll-indicator');
 let scrollTimeout;
 
-function isEndOfPage() {
-    return window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight;
-}
-
-function hideScrollIndicator() {
-    scrollIndicator.style.opacity = '0';
-}
-
-function showScrollIndicator() {
-    if (!isEndOfPage()) {
-        scrollIndicator.style.opacity = '1';
+// Only initialize scroll indicator if element exists
+if (scrollIndicator) {
+    function isEndOfPage() {
+        return window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight;
     }
-}
 
-window.addEventListener('scroll', () => {
-    // Hide while scrolling
-    hideScrollIndicator();
-    
-    // Clear existing timeout
-    clearTimeout(scrollTimeout);
-    
-    // Show after scrolling stops (unless at end of page)
-    scrollTimeout = setTimeout(() => {
+    function hideScrollIndicator() {
+        scrollIndicator.style.opacity = '0';
+    }
+
+    function showScrollIndicator() {
         if (!isEndOfPage()) {
-            showScrollIndicator();
+            scrollIndicator.style.opacity = '1';
         }
-    }, 1000);
-    
-    // Hide at end of page
+    }
+
+    window.addEventListener('scroll', () => {
+        // Hide while scrolling
+        hideScrollIndicator();
+        
+        // Clear existing timeout
+        clearTimeout(scrollTimeout);
+        
+        // Show after scrolling stops (unless at end of page)
+        scrollTimeout = setTimeout(() => {
+            if (!isEndOfPage()) {
+                showScrollIndicator();
+            }
+        }, 1000);
+    });
+
+    // Initial show/hide based on page position
     if (isEndOfPage()) {
         hideScrollIndicator();
+    } else {
+        showScrollIndicator();
     }
-});
-
-// Show initially (after a delay)
-setTimeout(showScrollIndicator, 1000);
+}
