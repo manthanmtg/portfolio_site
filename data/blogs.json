@@ -4,20 +4,6 @@
     "blogs": [
         {
             "type": "series",
-            "title": "Python Mastery Series",
-            "description": "A comprehensive guide to mastering Python programming",
-            "series_items": [
-                {
-                    "title": "Zero to Hero in Python in 30 Days",
-                    "description": "Published on Medium • 6000+ views • 2500+ reads",
-                    "date": "2023-12-01",
-                    "link": "#",
-                    "tags": ["python", "beginners"]
-                }
-            ]
-        },
-        {
-            "type": "series",
             "title": "Understanding Data Analytics Building Blocks",
             "description": "A comprehensive guide to mastering Machine Learning",
             "series_items": [
@@ -26,17 +12,40 @@
                     "description": "The article explains four basic data analytics concepts: measures, metrics, attributes, and dimensions for better data understanding.",
                     "date": "2024-12-08",
                     "link": "https://medium.com/p/aa56c1618159",
-                    "tags": ["data-analytics", "big-data", "data-modeling"]
+                    "tags": [
+                        "data-analytics",
+                        "big-data",
+                        "data-modeling"
+                    ]
                 }
             ]
         },
         {
             "type": "single",
-            "title": "Simplify Your Code with Python’s any() and all()",
+            "title": "Simplify Your Code with Python\u2019s any() and all()",
             "description": "Learn how Python's any() and all() functions efficiently check boolean conditions across iterables like lists.",
             "date": "2024-02-27",
             "link": "https://medium.com/python-in-plain-english/simplify-your-code-with-pythons-any-and-all-3e24077189fe",
-            "tags": ["python"]
+            "tags": [
+                "python"
+            ]
+        },
+        {
+            "type": "series",
+            "title": "Python Mastery Series",
+            "description": "A comprehensive guide to mastering Python programming",
+            "series_items": [
+                {
+                    "title": "Zero to Hero in Python in 30 Days",
+                    "description": "Published on Medium \u2022 6000+ views \u2022 2500+ reads",
+                    "date": "2023-12-01",
+                    "link": "#",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                }
+            ]
         },
         {
             "type": "single",
@@ -44,7 +53,10 @@
             "description": "Explores Python's built-in special methods and protocols that define object behavior in an approachable way.",
             "date": "2020-04-14",
             "link": "https://medium.com/python-in-plain-english/understanding-python-data-model-a-simple-introduction-da60a886c99b",
-            "tags": ["python", "advanced-python"]
+            "tags": [
+                "python",
+                "advanced-python"
+            ]
         }
     ]
 }
