@@ -59,6 +59,17 @@ body {
     color: var(--primary-color);
 }
 
+.logo a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo a:hover {
+    color: var(--secondary-color);
+}
+
 .nav-links {
     display: flex;
     list-style: none;
