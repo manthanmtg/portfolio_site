@@ -1,7 +1,7 @@
 /* Blogs Page Styles */
 .blogs-page {
     padding: 6rem 0 2rem;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px - 200px); /* Reduced height to accommodate footer */
 }
 
 .blogs-header {
