@@ -28,6 +28,7 @@ async function initializePage() {
         
         // Set up event listeners
         setupEventListeners();
+        setupNotesModal();
     } catch (error) {
         console.error('Error loading TIL entries:', error);
     }
@@ -207,6 +208,13 @@ function renderEntries(reset = false) {
             });
         });
         
+        // Handle notes button
+        const notesBtn = article.querySelector('.notes-btn');
+        if (entry.notes_md) {
+            notesBtn.classList.remove('hidden');
+            notesBtn.addEventListener('click', () => showNotes(entry.notes_md));
+        }
+        
         container.appendChild(entryElement);
     });
     
@@ -219,6 +227,48 @@ function renderEntries(reset = false) {
         noResults.className = 'text-center text-gray-500 dark:text-gray-400 py-8';
         noResults.innerHTML = '<i class="fas fa-search mb-2 text-2xl"></i><p>No entries found</p>';
         container.appendChild(noResults);
+    }
+}
+
+// Set up notes modal functionality
+function setupNotesModal() {
+    const modal = document.getElementById('notesModal');
+    const closeBtn = document.getElementById('closeNotesModal');
+    
+    closeBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    });
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    });
+}
+
+// Function to load and display notes
+async function showNotes(notesPath) {
+    const modal = document.getElementById('notesModal');
+    const notesContent = document.getElementById('notesContent');
+    
+    try {
+        const response = await fetch(notesPath);
+        if (!response.ok) throw new Error('Failed to load notes');
+        
+        const markdownText = await response.text();
+        // Convert markdown to HTML (you'll need to add marked.js to your HTML)
+        notesContent.innerHTML = marked.parse(markdownText);
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    } catch (error) {
+        console.error('Error loading notes:', error);
+        notesContent.innerHTML = '<p class="text-red-500">Failed to load notes. Please try again later.</p>';
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
     }
 }
 

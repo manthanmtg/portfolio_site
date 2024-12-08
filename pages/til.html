@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <script>
@@ -111,6 +113,21 @@
         </div>
     </main>
 
+    <!-- Notes Modal -->
+    <div id="notesModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-3xl w-full mx-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Notes</h3>
+                <button id="closeNotesModal" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="notesContent" class="prose prose-slate dark:prose-invert max-w-none prose-headings:font-poppins prose-p:font-poppins prose-li:font-poppins prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800 prose-pre:p-4 prose-pre:rounded-lg prose-code:text-primary dark:prose-code:text-blue-400">
+                <!-- Notes content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
     <div id="footer-component" class="mt-12"></div>
 
     <template id="entryTemplate">
@@ -122,6 +139,9 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="difficulty-badge tag-pill"></span>
+                    <button class="notes-btn hidden text-gray-400 hover:text-primary transition-colors duration-200">
+                        <i class="fas fa-sticky-note"></i>
+                    </button>
                     <button class="copy-link-btn text-gray-400 hover:text-primary transition-colors duration-200">
                         <i class="fas fa-link"></i>
                     </button>

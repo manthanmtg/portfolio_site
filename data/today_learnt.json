@@ -36,7 +36,8 @@
       "difficulty": "medium",
       "tags": [
         "system-design"
-      ]
+      ],
+      "notes_md": "../data/notes/api_gateway_notes.md"
     }
   ]
 }
