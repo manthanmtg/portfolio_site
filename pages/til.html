@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today I Learned - Manthan B Y</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' font-family='Arial' fill='%23333'>M</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1F2937'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .tag-pill {
+                @apply px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer;
+            }
+            .difficulty-easy {
+                @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100;
+            }
+            .difficulty-medium {
+                @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100;
+            }
+            .difficulty-hard {
+                @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <div id="header-component"></div>
+
+    <main class="pt-24 pb-8 min-h-screen">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <header class="text-center mb-12">
+                <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-4 text-gray-800 dark:text-white">Today I Learned</h1>
+                <p class="font-poppins text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">A collection of my daily learnings and discoveries in tech.</p>
+            </header>
+
+            <!-- Filters Section -->
+            <div class="mb-8 space-y-4">
+                <div class="flex flex-wrap gap-4">
+                    <div class="relative flex gap-2">
+                        <select id="timeFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">All Time</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                        <select id="monthFilter" class="hidden bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">All Months</option>
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">June</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8">September</option>
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                        <div class="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="relative flex-grow max-w-md">
+                        <input type="text" id="searchInput" placeholder="Search entries..." 
+                               class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tagCloud" class="flex flex-wrap gap-2">
+                    <!-- Tags will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Entries Container -->
+            <div id="entriesContainer" class="space-y-6">
+                <!-- Entries will be dynamically inserted here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-8">
+                <button id="loadMoreBtn" class="bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors duration-200">
+                    Load More
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-component" class="mt-12"></div>
+
+    <template id="entryTemplate">
+        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform duration-200 hover:scale-[1.02]">
+            <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white"></h2>
+                    <time class="text-sm text-gray-500 dark:text-gray-400"></time>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="difficulty-badge tag-pill"></span>
+                    <button class="copy-link-btn text-gray-400 hover:text-primary transition-colors duration-200">
+                        <i class="fas fa-link"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4"></p>
+            <div class="space-y-4">
+                <div class="references space-y-2">
+                    <!-- References will be inserted here -->
+                </div>
+                <div class="tags flex flex-wrap gap-2">
+                    <!-- Tags will be inserted here -->
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <script src="../js/utils/components.js"></script>
+    <script src="../js/header-menu.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/til.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('header-component', '../components/header.html');
+            loadComponent('footer-component', '../components/footer.html');
+        });
+    </script>
+</body>
+</html>

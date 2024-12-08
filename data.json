@@ -14,6 +14,7 @@
             {"text": "Projects", "href": "#projects"},
             {"text": "Research", "href": "#research"},
             {"text": "Blogs", "href": "pages/blogs.html"},
+            {"text": "TIL", "href": "pages/til.html"},
             {"text": "Contact", "href": "#contact"}
         ]
     },

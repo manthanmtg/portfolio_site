@@ -1,0 +1,134 @@
+{
+  "entries": [
+    {
+      "date": "2024-12-08",
+      "title": "String Interpolation in Python",
+      "content": "Learned about f-strings and their performance benefits compared to traditional string formatting methods. F-strings are not only more readable but also faster in execution.",
+      "references": [
+        {
+          "title": "Python Documentation",
+          "url": "https://docs.python.org/3/reference/lexical_analysis.html#f-strings"
+        }
+      ],
+      "difficulty": "easy",
+      "tags": ["python", "strings", "performance"]
+    },
+    {
+      "date": "2024-12-07",
+      "title": "React Server Components",
+      "content": "Explored React Server Components and how they can improve application performance by reducing client-side JavaScript bundle size.",
+      "references": [
+        {
+          "title": "React Docs",
+          "url": "https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components"
+        }
+      ],
+      "difficulty": "hard",
+      "tags": ["react", "performance", "javascript"]
+    },
+    {
+      "date": "2024-12-05",
+      "title": "CSS Container Queries",
+      "content": "Discovered how to use container queries for more granular control over responsive design, allowing components to adapt based on their container's size rather than viewport.",
+      "references": [
+        {
+          "title": "MDN Web Docs",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": ["css", "responsive-design"]
+    },
+    {
+      "date": "2024-12-03",
+      "title": "Git Interactive Rebase",
+      "content": "Mastered interactive rebase in Git for cleaning up commit history. Learned how to squash, edit, and reorder commits effectively.",
+      "references": [
+        {
+          "title": "Git Documentation",
+          "url": "https://git-scm.com/docs/git-rebase"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": ["git", "version-control"]
+    },
+    {
+      "date": "2024-11-30",
+      "title": "TypeScript Generics",
+      "content": "Deep dive into TypeScript generics and their practical applications in creating reusable, type-safe components and functions.",
+      "references": [
+        {
+          "title": "TypeScript Handbook",
+          "url": "https://www.typescriptlang.org/docs/handbook/2/generics.html"
+        }
+      ],
+      "difficulty": "hard",
+      "tags": ["typescript", "javascript", "programming"]
+    },
+    {
+      "date": "2024-11-28",
+      "title": "Docker Multi-Stage Builds",
+      "content": "Learned how to optimize Docker images using multi-stage builds, significantly reducing final image size while maintaining functionality.",
+      "references": [
+        {
+          "title": "Docker Docs",
+          "url": "https://docs.docker.com/build/building/multi-stage/"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": ["docker", "devops", "optimization"]
+    },
+    {
+      "date": "2024-11-25",
+      "title": "Web Authentication API",
+      "content": "Explored the WebAuthn API for implementing passwordless authentication using biometric sensors and security keys.",
+      "references": [
+        {
+          "title": "Web.dev Guide",
+          "url": "https://web.dev/webauthn/"
+        }
+      ],
+      "difficulty": "hard",
+      "tags": ["security", "javascript", "web-api"]
+    },
+    {
+      "date": "2024-11-22",
+      "title": "CSS :has() Selector",
+      "content": "Discovered the power of the :has() selector in CSS for parent element selection, opening new possibilities for dynamic styling.",
+      "references": [
+        {
+          "title": "CSS Tricks",
+          "url": "https://css-tricks.com/the-css-has-selector/"
+        }
+      ],
+      "difficulty": "easy",
+      "tags": ["css", "selectors"]
+    },
+    {
+      "date": "2024-11-20",
+      "title": "Python AsyncIO",
+      "content": "Learned about asynchronous programming in Python using AsyncIO, including coroutines, event loops, and task management.",
+      "references": [
+        {
+          "title": "AsyncIO Documentation",
+          "url": "https://docs.python.org/3/library/asyncio.html"
+        }
+      ],
+      "difficulty": "hard",
+      "tags": ["python", "async", "performance"]
+    },
+    {
+      "date": "2024-11-18",
+      "title": "Rust Ownership System",
+      "content": "Started learning Rust's unique ownership system and how it ensures memory safety without garbage collection.",
+      "references": [
+        {
+          "title": "Rust Book",
+          "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": ["rust", "programming", "memory-management"]
+    }
+  ]
+}
