@@ -1,0 +1,35 @@
+{
+    "title": "My Blog Posts",
+    "description": "Sharing my thoughts, experiences, and technical insights",
+    "blogs": [
+        {
+            "type": "series",
+            "title": "Python Mastery Series",
+            "description": "A comprehensive guide to mastering Python programming",
+            "series_items": [
+                {
+                    "title": "Zero to Hero in Python in 30 Days",
+                    "description": "Published on Medium • 6000+ views • 2500+ reads",
+                    "date": "2023-12-01",
+                    "link": "#",
+                    "tags": ["python", "programming", "beginners"]
+                },
+                {
+                    "title": "Advanced Python Concepts",
+                    "description": "Deep dive into advanced Python features",
+                    "date": "2023-12-15",
+                    "link": "#",
+                    "tags": ["python", "advanced", "programming"]
+                }
+            ]
+        },
+        {
+            "type": "single",
+            "title": "Simulation and Analysis of Intrusion Resilient Smart Metering System",
+            "description": "Research Publication on Smart Grid Security",
+            "date": "2023-11-15",
+            "link": "#",
+            "tags": ["security", "research", "smart-grid"]
+        }
+    ]
+}

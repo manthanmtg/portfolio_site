@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Manthan B Y - Software Engineer</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' font-family='Arial' fill='%23333'>M</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,12 +11,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo"></div>
-            <ul class="nav-links"></ul>
-        </nav>
-    </header>
+    <div id="header-component"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -48,16 +43,18 @@
         <div class="container">
             <h2 class="section-title"></h2>
             <div class="about-content">
-                <div class="about-main">
-                    <div class="about-text">
-                        <h3></h3>
-                        <p></p>
-                        <div class="highlights"></div>
+                <div class="about-text">
+                    <h3></h3>
+                    <p></p>
+                    <div class="highlights">
+                        <!-- Highlights will be populated here -->
                     </div>
                 </div>
                 <div class="skills-section">
-                    <h3></h3>
-                    <div class="skills-grid"></div>
+                    <h3>Skills & Technologies</h3>
+                    <div class="skill-categories">
+                        <!-- Skills will be populated here -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,29 +84,16 @@
         </div>
     </section>
 
-    <!-- Articles Section -->
-    <section id="articles" class="articles">
-        <div class="container">
-            <h2 class="section-title"></h2>
-            <div class="articles-grid"></div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title"></h2>
-            <div class="contact-content"></div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="copyright"></p>
-        </div>
-    </footer>
+    <div id="footer-component"></div>
 
+    <script src="js/utils/components.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('header-component', './components/header.html');
+            loadComponent('footer-component', './components/footer.html');
+        });
+    </script>
 </body>
 </html>

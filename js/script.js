@@ -1,141 +1,235 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('/data.json');
+        const response = await fetch('./data.json');
         const data = await response.json();
         
-        // Update meta information
-        document.title = data.meta.title;
-        
-        // Update navigation
-        document.querySelector('.logo').textContent = data.navigation.logo;
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.innerHTML = data.navigation.links
-            .map(link => `<li><a href="${link.href}">${link.text}</a></li>`)
-            .join('');
-        
-        // Update hero section
-        document.querySelector('.hero-text-wrapper h1').textContent = data.hero.name;
-        document.querySelector('.hero-text-wrapper h2').innerHTML = 
-            `${data.hero.title} <span class="company">${data.hero.company}</span>`;
-        document.querySelector('.tagline').textContent = data.hero.tagline;
-        document.querySelector('.personal-quote').textContent = data.hero.quote;
-        
-        // Update social links
-        const socialLinks = document.querySelector('.social-links');
-        socialLinks.innerHTML = data.hero.socialLinks
-            .map(link => `
-                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link">
-                    <i class="${link.icon}"></i>
-                </a>
-            `).join('');
-        
-        // Update scroll text
-        document.querySelector('.scroll-text').textContent = data.ui.scrollText;
-        
-        // Update about section
-        document.querySelector('#about .section-title').textContent = data.about.title;
-        document.querySelector('.about-text h3').textContent = data.about.subtitle;
-        document.querySelector('.about-text > p').textContent = data.about.description;
-        
-        // Update highlights
-        const highlights = document.querySelector('.highlights');
-        highlights.innerHTML = data.about.highlights
-            .map(highlight => `
-                <div class="highlight-item">
-                    <i class="${highlight.icon}"></i>
-                    <h4>${highlight.title}</h4>
-                    <p>${highlight.description}</p>
-                </div>
-            `).join('');
+        // Function to update footer content
+        const updateFooter = () => {
+            console.log('Updating footer...');
+            const footer = document.querySelector('.footer');
+            if (!footer) {
+                console.log('Footer element not found');
+                return;
+            }
 
-        // Update skills title
-        document.querySelector('.skills-section h3').textContent = data.about.skillsTitle;
-        
-        // Update skills
-        const skillsGrid = document.querySelector('.skills-grid');
-        skillsGrid.innerHTML = Object.entries(data.about.skills)
-            .map(([category, skills]) => `
-                <div class="skill-category">
-                    <h4>${category}</h4>
-                    <ul class="skill-list">
-                        ${skills.map(skill => `
-                            <li><i class="${skill.icon}"></i>${skill.name}</li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `).join('');
-        
-        // Update experience section
-        document.querySelector('#experience .section-title').textContent = data.experience.title;
-        const timeline = document.querySelector('.timeline');
-        timeline.innerHTML = data.experience.jobs
-            .map(job => `
-                <div class="timeline-item">
-                    <h3>${job.title}</h3>
-                    <h4>${job.company}</h4>
-                    <p class="timeline-date">${job.period}</p>
-                    ${job.responsibilities.map(resp => `<p>• ${resp}</p>`).join('')}
-                </div>
-            `).join('');
-        
-        // Update projects section
-        document.querySelector('#projects .section-title').textContent = data.projects.title;
-        const projectsGrid = document.querySelector('.projects-grid');
-        projectsGrid.innerHTML = data.projects.items
-            .map(project => `
-                <div class="project-card">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <div class="tech-stack">${project.techStack.join(' • ')}</div>
-                    <a href="${project.link}" class="project-link">View Project</a>
-                </div>
-            `).join('');
+            // Update contact section
+            const sectionTitle = footer.querySelector('.section-title');
+            console.log('Section title element:', sectionTitle);
+            if (sectionTitle) {
+                sectionTitle.textContent = data.contact.title;
+                console.log('Updated section title to:', data.contact.title);
+            }
 
-        // Update research section
-        document.querySelector('#research .section-title').textContent = data.research.title;
-        const researchGrid = document.querySelector('.research-grid');
-        researchGrid.innerHTML = data.research.papers
-            .map(paper => `
-                <div class="paper-item">
-                    <h3>${paper.title}</h3>
-                    <p>${paper.publication}</p>
-                    <a href="${paper.link}" class="paper-link">Read Paper</a>
+            const contactGrid = footer.querySelector('.contact-grid');
+            console.log('Contact grid element:', contactGrid);
+            if (contactGrid) {
+                contactGrid.innerHTML = data.contact.items
+                    .map(item => createContactCard(item))
+                    .join('');
+                console.log('Updated contact grid with items:', data.contact.items);
+            }
+
+            // Update copyright and social links
+            const copyright = footer.querySelector('.copyright');
+            const socialLinks = footer.querySelector('.social-links');
+            
+            if (copyright) {
+                copyright.textContent = data.footer.copyright;
+                console.log('Updated copyright');
+            }
+            
+            if (socialLinks) {
+                socialLinks.innerHTML = data.footer.socialLinks
+                    .map(link => `
+                        <a href="${link.url}" target="_blank" rel="noopener noreferrer" aria-label="${link.label}">
+                            <i class="${link.icon}"></i>
+                        </a>
+                    `).join('');
+                console.log('Updated social links');
+            }
+        };
+
+        function createContactCard(item) {
+            const hasLink = item.link !== undefined;
+            const cardElement = hasLink ? 'a' : 'div';
+            const card = document.createElement(cardElement);
+            
+            card.className = 'contact-card';
+            if (hasLink) {
+                card.href = item.link;
+                card.target = '_blank';
+            }
+            
+            card.innerHTML = `
+                <div class="contact-icon">
+                    <i class="${item.icon}"></i>
                 </div>
-            `).join('');
-
-        // Update articles section
-        document.querySelector('#articles .section-title').textContent = data.articles.title;
-        const articlesGrid = document.querySelector('.articles-grid');
-        articlesGrid.innerHTML = data.articles.items
-            .map(article => `
-                <div class="article-card">
-                    <h3>${article.title}</h3>
-                    <p>${article.description}</p>
-                    <a href="${article.link}" class="article-link">Read Article</a>
+                <div class="contact-info">
+                    <h3>${item.label}</h3>
+                    <p>${item.value}</p>
                 </div>
-            `).join('');
+            `;
+            
+            return card.outerHTML;
+        }
 
-        // Update contact section
-        document.querySelector('#contact .section-title').textContent = data.contact.title;
-        const contactContent = document.querySelector('.contact-content');
-        contactContent.innerHTML = `
-            <div class="contact-info">
-                ${data.contact.items.map(item => `
-                    <div class="contact-item">
-                        <i class="${item.icon}"></i>
-                        <p>${item.label}: ${item.link ? 
-                            `<a href="${item.link}" ${item.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>${item.value}</a>` : 
-                            item.value}</p>
-                    </div>
-                `).join('')}
-            </div>
-        `;
+        // Function to update main content
+        const updateMainContent = () => {
+            // Update meta information
+            document.title = data.meta.title;
 
-        // Update footer
-        document.querySelector('.copyright').innerHTML = `&copy;${data.footer.copyright}`;
-        
+            // Update hero section
+            const heroH1 = document.querySelector('.hero-text-wrapper h1');
+            const heroH2 = document.querySelector('.hero-text-wrapper h2');
+            const tagline = document.querySelector('.tagline');
+            const quote = document.querySelector('.personal-quote');
+            const heroSocialLinks = document.querySelector('.hero .social-links');
+            const scrollText = document.querySelector('.scroll-text');
+
+            if (heroH1) heroH1.textContent = data.hero.name;
+            if (heroH2) heroH2.innerHTML = `${data.hero.title} <span class="company">${data.hero.company}</span>`;
+            if (tagline) tagline.textContent = data.hero.tagline;
+            if (quote) quote.textContent = data.hero.quote;
+            if (scrollText) scrollText.textContent = data.ui.scrollText;
+
+            if (heroSocialLinks) {
+                heroSocialLinks.innerHTML = data.hero.socialLinks
+                    .map(link => `
+                        <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="${link.icon}"></i>
+                        </a>
+                    `).join('');
+            }
+
+            // Update about section
+            const aboutTitle = document.querySelector('#about .section-title');
+            const aboutSubtitle = document.querySelector('.about-text h3');
+            const aboutDesc = document.querySelector('.about-text > p');
+            const highlights = document.querySelector('.highlights');
+            const skillCategories = document.querySelector('.skill-categories');
+
+            if (aboutTitle) aboutTitle.textContent = data.about.title;
+            if (aboutSubtitle) aboutSubtitle.textContent = data.about.subtitle;
+            if (aboutDesc) aboutDesc.textContent = data.about.description;
+
+            if (highlights) {
+                highlights.innerHTML = data.about.highlights
+                    .map(highlight => `
+                        <div class="highlight-item">
+                            <i class="${highlight.icon}"></i>
+                            <h4>${highlight.title}</h4>
+                            <p>${highlight.description}</p>
+                        </div>
+                    `).join('');
+            }
+
+            if (skillCategories) {
+                skillCategories.innerHTML = Object.entries(data.about.skills)
+                    .map(([category, skills]) => `
+                        <div class="skill-category">
+                            <h3>${category}</h3>
+                            <div class="skills">
+                                ${skills.map(skill => `
+                                    <div class="skill">
+                                        <i class="${skill.icon}"></i>
+                                        <span>${skill.name}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('');
+            }
+
+            // Update experience section
+            const experienceTitle = document.querySelector('#experience .section-title');
+            const timeline = document.querySelector('.timeline');
+
+            if (experienceTitle) experienceTitle.textContent = data.experience.title;
+
+            if (timeline) {
+                timeline.innerHTML = data.experience.jobs
+                    .map(job => `
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>${job.title}</h3>
+                                <p class="company">${job.company}</p>
+                                <p class="duration">${job.period}</p>
+                                <ul class="responsibilities">
+                                    ${job.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `).join('');
+            }
+
+            // Update projects section
+            const projectsTitle = document.querySelector('#projects .section-title');
+            const projectsGrid = document.querySelector('.projects-grid');
+
+            if (projectsTitle) projectsTitle.textContent = data.projects.title;
+
+            if (projectsGrid) {
+                projectsGrid.innerHTML = data.projects.items
+                    .map(project => `
+                        <div class="project-card">
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                            <div class="tech-stack">
+                                ${project.techStack.map(tech => `<span>${tech}</span>`).join('')}
+                            </div>
+                            <a href="${project.link}" class="project-link">View Project</a>
+                        </div>
+                    `).join('');
+            }
+
+            // Update research section
+            const researchTitle = document.querySelector('#research .section-title');
+            const researchGrid = document.querySelector('.research-grid');
+
+            if (researchTitle) researchTitle.textContent = data.research.title;
+
+            if (researchGrid) {
+                researchGrid.innerHTML = data.research.papers
+                    .map(paper => `
+                        <div class="research-card">
+                            <h3>${paper.title}</h3>
+                            <p>${paper.publication}</p>
+                            <a href="${paper.link}" class="paper-link">Read Paper</a>
+                        </div>
+                    `).join('');
+            }
+
+            // Update contact section
+            const contactTitle = document.querySelector('.contact-section .section-title');
+            const contactGrid = document.querySelector('.contact-grid');
+
+            if (contactTitle) contactTitle.textContent = data.contact.title;
+
+            if (contactGrid) {
+                contactGrid.innerHTML = data.contact.items
+                    .map(item => createContactCard(item))
+                    .join('');
+            }
+        };
+
+        // Initial update of main content
+        updateMainContent();
+
+        // Update content when components are loaded
+        document.addEventListener('componentLoaded', (event) => {
+            console.log('Component loaded:', event.detail);
+            if (event.detail.id === 'footer-component') {
+                console.log('Footer component loaded, updating content...');
+                // Wait for the next tick to ensure DOM is updated
+                setTimeout(updateFooter, 0);
+            }
+        });
+
+        // Initial footer update
+        updateFooter();
+
     } catch (error) {
-        console.error('Error loading data:', error);
+        console.error('Error:', error);
     }
 });
 
@@ -144,7 +238,7 @@ const scrollIndicator = document.querySelector('.scroll-indicator');
 let scrollTimeout;
 
 function isEndOfPage() {
-    return (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
+    return window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight;
 }
 
 function hideScrollIndicator() {
@@ -152,37 +246,30 @@ function hideScrollIndicator() {
 }
 
 function showScrollIndicator() {
-    // Don't show if at the end of the page
-    if (isEndOfPage()) {
-        hideScrollIndicator();
-        return;
+    if (!isEndOfPage()) {
+        scrollIndicator.style.opacity = '1';
     }
-    scrollIndicator.style.opacity = '1';
 }
 
 window.addEventListener('scroll', () => {
     // Hide while scrolling
     hideScrollIndicator();
     
-    // Clear any existing timeout
+    // Clear existing timeout
     clearTimeout(scrollTimeout);
     
-    // Set new timeout to show indicator after scrolling stops
-    if (!isEndOfPage()) {
-        scrollTimeout = setTimeout(showScrollIndicator, 1500);
-    }
-});
-
-// Show initially if not at the end of page
-if (!isEndOfPage()) {
-    showScrollIndicator();
-}
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    if (!isEndOfPage() && !scrollTimeout) {
-        showScrollIndicator();
-    } else {
+    // Show after scrolling stops (unless at end of page)
+    scrollTimeout = setTimeout(() => {
+        if (!isEndOfPage()) {
+            showScrollIndicator();
+        }
+    }, 1000);
+    
+    // Hide at end of page
+    if (isEndOfPage()) {
         hideScrollIndicator();
     }
 });
+
+// Show initially (after a delay)
+setTimeout(showScrollIndicator, 1000);

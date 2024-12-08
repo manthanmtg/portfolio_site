@@ -13,7 +13,7 @@
             {"text": "Experience", "href": "#experience"},
             {"text": "Projects", "href": "#projects"},
             {"text": "Research", "href": "#research"},
-            {"text": "Articles", "href": "#articles"},
+            {"text": "Blogs", "href": "pages/blogs.html"},
             {"text": "Contact", "href": "#contact"}
         ]
     },
@@ -172,36 +172,6 @@
             }
         ]
     },
-    "articles": {
-        "title": "Published Articles",
-        "items": [
-            {
-                "title": "Zero to Hero in Python in 30 Days",
-                "description": "Published on Medium • 6000+ views • 2500+ reads",
-                "link": "#"
-            },
-            {
-                "title": "Simulation and Analysis of Intrusion Resilient Smart Metering System",
-                "description": "Research Publication",
-                "link": "#"
-            },
-            {
-                "title": "Building Scalable Microservices Architecture",
-                "description": "Published on Medium • 5 min read",
-                "link": "#"
-            },
-            {
-                "title": "Best Practices for Cloud-Native Applications",
-                "description": "Published on Dev.to • 8 min read",
-                "link": "#"
-            },
-            {
-                "title": "Understanding Modern JavaScript Features",
-                "description": "Published on HashNode • 6 min read",
-                "link": "#"
-            }
-        ]
-    },
     "contact": {
         "title": "Get In Touch",
         "items": [
@@ -231,6 +201,18 @@
         ]
     },
     "footer": {
-        "copyright": " 2024 Manthan B Y. All rights reserved."
+        "copyright": " 2024 Manthan B Y. All rights reserved.",
+        "socialLinks": [
+            {
+                "icon": "fab fa-github",
+                "url": "https://github.com/manthanmtg",
+                "label": "GitHub"
+            },
+            {
+                "icon": "fab fa-linkedin",
+                "url": "https://linkedin.com/in/manthanby",
+                "label": "LinkedIn"
+            }
+        ]
     }
 }

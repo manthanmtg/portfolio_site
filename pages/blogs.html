@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manthan B Y - Blogs</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' font-family='Arial' fill='%23333'>M</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/blogs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-component"></div>
+
+    <main class="blogs-page">
+        <div class="container">
+            <header class="blogs-header">
+                <h1 class="page-title"></h1>
+                <p class="page-description"></p>
+            </header>
+
+            <div class="blogs-filter">
+                <input type="text" id="searchBlogs" placeholder="Search blogs...">
+                <div class="tags-filter" id="tagsFilter">
+                    <!-- Tags will be dynamically added here -->
+                </div>
+            </div>
+
+            <div class="blogs-container">
+                <!-- Blogs will be dynamically added here -->
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="../js/utils/components.js"></script>
+    <script src="../js/blogs.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('header-component', '../components/header.html');
+            loadComponent('footer-component', '../components/footer.html');
+        });
+    </script>
+</body>
+</html>
