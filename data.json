@@ -1,0 +1,232 @@
+{
+    "meta": {
+        "title": "Manthan B Y - Software Engineer"
+    },
+    "navigation": {
+        "logo": "MBY",
+        "links": [
+            {"text": "Home", "href": "#home"},
+            {"text": "About", "href": "#about"},
+            {"text": "Experience", "href": "#experience"},
+            {"text": "Projects", "href": "#projects"},
+            {"text": "Research", "href": "#research"},
+            {"text": "Articles", "href": "#articles"},
+            {"text": "Contact", "href": "#contact"}
+        ]
+    },
+    "hero": {
+        "name": "Manthan B Y",
+        "title": "Software Engineer at",
+        "company": "LinkedIn",
+        "tagline": "Building innovative solutions with passion and precision",
+        "quote": "Great engineers aren't defined by mastering one tool, but by their hunger to master new ones.",
+        "socialLinks": [
+            {
+                "platform": "linkedin",
+                "url": "https://linkedin.com/in/manthanby",
+                "icon": "fab fa-linkedin"
+            },
+            {
+                "platform": "github",
+                "url": "https://github.com/manthanmtg",
+                "icon": "fab fa-github"
+            },
+            {
+                "platform": "email",
+                "url": "mailto:manthan.gowda@gmail.com",
+                "icon": "fas fa-envelope"
+            }
+        ]
+    },
+    "about": {
+        "title": "About Me",
+        "subtitle": "Software Engineer at LinkedIn",
+        "description": "I'm a passionate software engineer specializing in building scalable distributed systems and data platforms. Currently at LinkedIn, I focus on accelerating data-driven decision-making through robust engineering solutions.",
+        "highlights": [
+            {
+                "icon": "fas fa-code",
+                "title": "Systems Engineering",
+                "description": "Building scalable distributed systems and data platforms"
+            },
+            {
+                "icon": "fas fa-cloud",
+                "title": "Cloud Infrastructure",
+                "description": "Working with public cloud environments and data platforms"
+            },
+            {
+                "icon": "fas fa-database",
+                "title": "Data Engineering",
+                "description": "Experience with Apache Hive and big data technologies"
+            }
+        ],
+        "skills": {
+            "Languages": [
+                {"name": "Python", "icon": "fas fa-code"},
+                {"name": "Java", "icon": "fab fa-java"},
+                {"name": "Go", "icon": "fas fa-code"},
+                {"name": "JavaScript", "icon": "fab fa-js"},
+                {"name": "HTML5", "icon": "fab fa-html5"},
+                {"name": "CSS3", "icon": "fab fa-css3-alt"},
+                {"name": "SQL", "icon": "fas fa-database"},
+                {"name": "Rust", "icon": "fab fa-rust"}
+            ],
+            "Frameworks & Tools": [
+                {"name": "React", "icon": "fab fa-react"},
+                {"name": "Vue.js", "icon": "fab fa-vuejs"},
+                {"name": "Angular", "icon": "fab fa-angular"},
+                {"name": "Node.js", "icon": "fab fa-node-js"},
+                {"name": "Spring Boot", "icon": "fas fa-leaf"},
+                {"name": "Django", "icon": "fab fa-python"},
+                {"name": "FastAPI", "icon": "fas fa-fire"},
+                {"name": "Gin", "icon": "fab fa-golang"}
+            ],
+            "Cloud & DevOps": [
+                {"name": "AWS", "icon": "fab fa-aws"},
+                {"name": "GCP", "icon": "fab fa-google"},
+                {"name": "Azure", "icon": "fab fa-microsoft"},
+                {"name": "Kubernetes", "icon": "fas fa-dharmachakra"},
+                {"name": "Jenkins", "icon": "fab fa-jenkins"},
+                {"name": "GitHub Actions", "icon": "fab fa-github"},
+                {"name": "ArgoCD", "icon": "fas fa-infinity"},
+                {"name": "Terraform", "icon": "fas fa-network-wired"}
+            ]
+        }
+    },
+    "experience": {
+        "title": "Professional Experience",
+        "jobs": [
+            {
+                "title": "Software Engineer",
+                "company": "LinkedIn",
+                "period": "January 2024 - Present",
+                "responsibilities": [
+                    "Building and optimizing data platforms for accelerating data-driven decision-making"
+                ]
+            },
+            {
+                "title": "Software Engineer II",
+                "company": "Cloudera",
+                "period": "August 2022 - January 2024",
+                "responsibilities": [
+                    "Led development initiatives for CDW product enhancement",
+                    "Onboarded code coverage for CDW product",
+                    "Enhanced test coverage and development for Apache Hive",
+                    "Managed end-to-end testing for Hive ZDU in CDP 7.1.9",
+                    "Improved quality assessment through instrumentation in public cloud environments"
+                ]
+            },
+            {
+                "title": "Software Engineer I",
+                "company": "Cloudera",
+                "period": "July 2021 - August 2022",
+                "responsibilities": [
+                    "Developed and maintained Hive across various formats",
+                    "Maintained Hive QE across various formats",
+                    "Built frameworks and tools for Cloudera projects"
+                ]
+            },
+            {
+                "title": "Software Engineering Intern",
+                "company": "Cloudera",
+                "period": "January 2021 - June 2021",
+                "responsibilities": [
+                    "Automated SQLancer testing for Cloudera clusters",
+                    "Contributed to Apache Hive and Impala projects"
+                ]
+            }
+        ]
+    },
+    "projects": {
+        "title": "Projects",
+        "items": [
+            {
+                "title": "AI-Powered Code Assistant",
+                "description": "Developed an intelligent code completion system using transformer models and static analysis",
+                "techStack": ["Python", "TensorFlow"],
+                "link": "#"
+            },
+            {
+                "title": "Distributed Task Scheduler",
+                "description": "Built a scalable task scheduling system handling 100K+ daily tasks",
+                "techStack": ["Go", "Redis"],
+                "link": "#"
+            }
+        ]
+    },
+    "research": {
+        "title": "Research Papers",
+        "papers": [
+            {
+                "title": "Machine Learning Approaches in Code Completion Systems",
+                "publication": "Published in International Conference on Software Engineering (ICSE) 2023",
+                "link": "#"
+            },
+            {
+                "title": "Optimizing Distributed Systems Performance: A Case Study",
+                "publication": "Published in ACM SIGOPS Operating Systems Review 2022",
+                "link": "#"
+            }
+        ]
+    },
+    "articles": {
+        "title": "Published Articles",
+        "items": [
+            {
+                "title": "Zero to Hero in Python in 30 Days",
+                "description": "Published on Medium • 6000+ views • 2500+ reads",
+                "link": "#"
+            },
+            {
+                "title": "Simulation and Analysis of Intrusion Resilient Smart Metering System",
+                "description": "Research Publication",
+                "link": "#"
+            },
+            {
+                "title": "Building Scalable Microservices Architecture",
+                "description": "Published on Medium • 5 min read",
+                "link": "#"
+            },
+            {
+                "title": "Best Practices for Cloud-Native Applications",
+                "description": "Published on Dev.to • 8 min read",
+                "link": "#"
+            },
+            {
+                "title": "Understanding Modern JavaScript Features",
+                "description": "Published on HashNode • 6 min read",
+                "link": "#"
+            }
+        ]
+    },
+    "contact": {
+        "title": "Get In Touch",
+        "items": [
+            {
+                "icon": "fas fa-envelope",
+                "label": "Email",
+                "value": "manthan.gowda@gmail.com",
+                "link": "mailto:manthan.gowda@gmail.com"
+            },
+            {
+                "icon": "fas fa-location-dot",
+                "label": "Location",
+                "value": "Bengaluru, India"
+            },
+            {
+                "icon": "fab fa-linkedin",
+                "label": "LinkedIn",
+                "value": "linkedin.com/in/manthanby",
+                "link": "https://linkedin.com/in/manthanby"
+            },
+            {
+                "icon": "fab fa-github",
+                "label": "GitHub",
+                "value": "github.com/manthanmtg",
+                "link": "https://github.com/manthanmtg"
+            }
+        ]
+    },
+    "footer": {
+        "copyright": " 2024 Manthan B Y. All rights reserved."
+    }
+}
