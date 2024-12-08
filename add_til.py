@@ -60,6 +60,25 @@ def get_difficulty():
             return "hard"
         print("Invalid choice. Please select 1, 2, or 3.")
 
+def get_notes_path():
+    print("\nDo you want to add notes? (y/n)")
+    if get_input("Choice", default="n").lower() != 'y':
+        return None
+    
+    print("\nNOTE: Keep your notes files inside the 'data' folder")
+    print("Enter the path AFTER 'data/', e.g., 'notes/my_notes.md'")
+    while True:
+        path = get_input("Notes path (after data/)", required=False)
+        if not path:
+            return None
+        
+        full_path = os.path.join("data", path)
+        if not os.path.exists(full_path):
+            print(f"Warning: File '{full_path}' does not exist!")
+            if get_input("Continue anyway? (y/n)", default="n").lower() != 'y':
+                continue
+        return path
+
 def add_til_entry():
     print_header("Add TIL (Today I Learned) Entry")
     
@@ -69,7 +88,8 @@ def add_til_entry():
         "content": get_input("Content"),
         "references": get_references(),
         "difficulty": get_difficulty(),
-        "tags": get_tags()
+        "tags": get_tags(),
+        "notes_md": get_notes_path()
     }
     
     return entry
