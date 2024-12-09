@@ -1,6 +1,17 @@
 {
   "entries": [
     {
+      "date": "2024-12-09",
+      "title": "Why should a container have only one process?",
+      "content": "Try to design your containers to run one process per container for better isolation, scalability, and resource efficiency. By Govardhana M K",
+      "references": [],
+      "difficulty": "medium",
+      "tags": [
+        "system-design"
+      ],
+      "notes_md": "../data/notes/why_one_process_per_container.md"
+    },
+    {
       "date": "2024-12-08",
       "title": "Mastering Python Project Management with uv",
       "content": "Learned about new way of project management in Python using uv. Learnt, it is very fast compared to normal pip operations.",
