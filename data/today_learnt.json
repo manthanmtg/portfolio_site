@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "date": "2024-12-11",
+      "title": "Spark Application Lifecycle",
+      "content": "Spark jobs flow through submission, driver initialization, executor setup, task execution, and completion, managed by Resource Manager.",
+      "references": [
+        {
+          "title": "Databricks Doc",
+          "url": "https://www.databricks.com/glossary/what-are-spark-applications"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "system-design",
+        "spark"
+      ],
+      "notes_md": "../data/notes/spark_app_lifecycle.md"
+    },
+    {
       "date": "2024-12-09",
       "title": "Why should a container have only one process?",
       "content": "Try to design your containers to run one process per container for better isolation, scalability, and resource efficiency. By Govardhana M K",
