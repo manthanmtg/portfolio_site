@@ -1,6 +1,22 @@
 {
   "entries": [
     {
+      "date": "2024-12-12",
+      "title": "Spark API's",
+      "content": "Detailed guide on different ways to interact with Spark as user.",
+      "references": [
+        {
+          "title": "Spark API",
+          "url": "https://www.databricks.com/glossary/spark-api"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "spark"
+      ],
+      "notes_md": "../data/notes/spark_apis.md"
+    },
+    {
       "date": "2024-12-11",
       "title": "Spark Application Lifecycle",
       "content": "Spark jobs flow through submission, driver initialization, executor setup, task execution, and completion, managed by Resource Manager.",
