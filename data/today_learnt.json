@@ -1,6 +1,26 @@
 {
   "entries": [
     {
+      "date": "2024-12-13",
+      "title": "Spark Application, Anatomy and Execution",
+      "content": "The fundamental aspects of Spark's architecture, execution model, and various components that work together to process distributed data efficiently.",
+      "references": [
+        {
+          "title": "Anatomy of Apache Spark Application",
+          "url": "https://luminousmen.com/post/spark-anatomy-of-spark-application/"
+        },
+        {
+          "title": "RDD Programming Guide",
+          "url": "https://spark.apache.org/docs/latest/rdd-programming-guide.html"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "spark"
+      ],
+      "notes_md": "../data/notes/spark_app_anatomy_execution.md"
+    },
+    {
       "date": "2024-12-12",
       "title": "Spark API's",
       "content": "Detailed guide on different ways to interact with Spark as user.",
