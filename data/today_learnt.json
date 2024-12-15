@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "date": "2024-12-15",
+      "title": "Article: How to Make Coding Fun and Addictive",
+      "content": "Coding can be made as engaging as video games or social media through dopamine-driven motivation",
+      "references": [
+        {
+          "title": "Substack Article",
+          "url": "https://blog.algomaster.io/p/how-to-make-coding-fun-and-addictive?r=as3y0&utm_campaign=post&utm_medium=web"
+        }
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "general",
+        "article"
+      ],
+      "notes_md": "../data/notes/how_to_make_coding_fun.md"
+    },
+    {
       "date": "2024-12-14",
       "title": "How Hadoop DistCp works?",
       "content": "DistCp (distributed copy) is a tool used for large inter/intra-cluster copying. It uses MapReduce to effect its distribution, error handling and recovery, and reporting. It expands a list of files and directories into input to map tasks, each of which will copy a partition of the files specified in the source list",
