@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2024-12-16",
+      "title": "Columnar Databases vs. Row-Oriented Databases",
+      "content": "Choosing the right database structure determines the efficiency and performance of your application. An application's speed, scalability, and maintenance depend upon the underlying database structure. Columnar databases and row-oriented databases are two common database structures with distinct characteristics.",
+      "references": [
+        {
+          "title": "Timescale Article",
+          "url": "https://www.timescale.com/learn/columnar-databases-vs-row-oriented-databases-which-to-choose"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "system-design",
+        "data-platform",
+        "dbms"
+      ],
+      "notes_md": "../data/notes/row_vs_columnar_storage.md"
+    },
+    {
       "date": "2024-12-15",
       "title": "Article: How to Make Coding Fun and Addictive",
       "content": "Coding can be made as engaging as video games or social media through dopamine-driven motivation",
