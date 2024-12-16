@@ -45,6 +45,26 @@
             }
         }
     </style>
+    <style>
+        @keyframes animate-in {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-in {
+            animation: animate-in 0.5s ease-out forwards;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
     <div id="header-component"></div>
@@ -88,8 +108,20 @@
                     <div class="relative flex-grow max-w-md">
                         <input type="text" id="searchInput" placeholder="Search entries..." 
                                class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
-                        <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                        <div class="absolute right-12 top-1/2 transform -translate-y-1/2">
                             <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                    </div>
+
+                    <!-- Streak Counter -->
+                    <div class="flex items-center h-[42px] bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg px-3 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-fire text-sm mr-2 animate-pulse text-orange-300"></i>
+                        <div class="flex flex-col justify-center leading-tight">
+                            <span class="text-[10px] font-medium">Current Streak</span>
+                            <div class="flex items-baseline">
+                                <span id="streakCount" class="text-base font-bold">0</span>
+                                <span class="text-[10px] ml-1">days</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,6 +200,59 @@
             loadComponent('header-component', '../components/header.html');
             loadComponent('footer-component', '../components/footer.html');
         });
+    </script>
+    <script>
+        function calculateStreak(entries) {
+            if (!entries || entries.length === 0) return 0;
+            
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            // Get unique dates and sort them in descending order
+            const uniqueDates = [...new Set(entries.map(entry => entry.date))]
+                .map(date => new Date(date))
+                .sort((a, b) => b - a);
+            
+            // Check if the latest entry is more than 1 day old
+            const latestDate = uniqueDates[0];
+            const daysSinceLastEntry = Math.floor((today - latestDate) / (1000 * 60 * 60 * 24));
+            
+            if (daysSinceLastEntry > 1) {
+                return 0;
+            }
+            
+            let streak = 0;
+            let currentDate = today;
+            
+            for (let i = 0; i < uniqueDates.length; i++) {
+                const entryDate = uniqueDates[i];
+                entryDate.setHours(0, 0, 0, 0);
+                
+                const diffDays = Math.floor((currentDate - entryDate) / (1000 * 60 * 60 * 24));
+                
+                if (diffDays <= 1) {
+                    streak++;
+                    currentDate = entryDate;
+                } else {
+                    break;
+                }
+            }
+            
+            return streak;
+        }
+
+        // Update streak count when entries are loaded
+        fetch('../data/today_learnt.json')
+            .then(response => response.json())
+            .then(data => {
+                const streak = calculateStreak(data.entries);
+                const streakElement = document.getElementById('streakCount');
+                streakElement.textContent = streak;
+                
+                // Add animation when streak is displayed
+                streakElement.classList.add('animate-in');
+            })
+            .catch(error => console.error('Error loading streak data:', error));
     </script>
 </body>
 </html>
