@@ -56,13 +56,206 @@
             animation: animate-in 0.5s ease-out forwards;
         }
 
-        .animate-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        @keyframes hot-streak-flame {
+            0%, 100% { 
+                transform: scale(1) rotate(-5deg);
+                filter: brightness(1) drop-shadow(0 0 2px rgba(255, 165, 0, 0.5));
+            }
+            25% { 
+                transform: scale(1.2) rotate(5deg);
+                filter: brightness(1.3) drop-shadow(0 0 4px rgba(255, 165, 0, 0.7));
+            }
+            50% { 
+                transform: scale(1.1) rotate(-3deg);
+                filter: brightness(1.2) drop-shadow(0 0 3px rgba(255, 165, 0, 0.6));
+            }
+            75% { 
+                transform: scale(1.15) rotate(3deg);
+                filter: brightness(1.4) drop-shadow(0 0 5px rgba(255, 165, 0, 0.8));
+            }
         }
 
-        @keyframes pulse {
+        .hot-streak {
+            animation: hot-streak-flame 1.5s ease-in-out infinite;
+            color: #FFA500;
+        }
+
+        @keyframes container-hot-streak {
+            0%, 100% {
+                background-image: linear-gradient(to right, #9333EA, #4F46E5);
+                transform: scale(1);
+            }
+            50% {
+                background-image: linear-gradient(to right, #7C3AED, #4338CA);
+                transform: scale(1.02);
+            }
+        }
+
+        .container-hot {
+            animation: container-hot-streak 2s ease-in-out infinite;
+        }
+
+        @keyframes animate-pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
+        }
+
+        .animate-pulse {
+            animation: animate-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes fire-burst {
+            0% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.3); filter: brightness(1.5); }
+            100% { transform: scale(1); filter: brightness(1); }
+        }
+
+        .fire-burst {
+            animation: fire-burst 0.5s ease-in-out;
+        }
+
+        @keyframes streak-glow {
+            0% { box-shadow: 0 0 5px rgba(236, 72, 153, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.8), 0 0 30px rgba(167, 139, 250, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(236, 72, 153, 0.5); }
+        }
+
+        .streak-highlight {
+            animation: streak-glow 2s ease-in-out infinite;
+        }
+
+        /* Beginner Streak (1-3 days) */
+        @keyframes beginner-flame {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.1); filter: brightness(1.2); }
+        }
+        .streak-beginner {
+            animation: beginner-flame 2s ease-in-out infinite;
+            color: #FFA07A;
+        }
+        .container-beginner {
+            background-image: linear-gradient(to right, #818CF8, #6366F1);
+        }
+
+        /* Regular Streak (4-8 days) */
+        @keyframes regular-flame {
+            0%, 100% { transform: scale(1) rotate(-3deg); filter: brightness(1.1); }
+            50% { transform: scale(1.15) rotate(3deg); filter: brightness(1.3); }
+        }
+        .streak-regular {
+            animation: regular-flame 1.8s ease-in-out infinite;
+            color: #FFA500;
+        }
+        .container-regular {
+            background-image: linear-gradient(to right, #8B5CF6, #6366F1);
+        }
+
+        /* Advanced Streak (9-15 days) */
+        @keyframes advanced-flame {
+            0%, 100% { 
+                transform: scale(1) rotate(-5deg);
+                filter: brightness(1.2) drop-shadow(0 0 3px rgba(255, 165, 0, 0.6));
+            }
+            50% { 
+                transform: scale(1.2) rotate(5deg);
+                filter: brightness(1.4) drop-shadow(0 0 5px rgba(255, 165, 0, 0.8));
+            }
+        }
+        .streak-advanced {
+            animation: advanced-flame 1.5s ease-in-out infinite;
+            color: #FF8C00;
+        }
+        .container-advanced {
+            background-image: linear-gradient(to right, #9333EA, #4F46E5);
+        }
+
+        /* Expert Streak (16-30 days) */
+        @keyframes expert-flame {
+            0%, 100% { 
+                transform: scale(1.1) rotate(-5deg);
+                filter: brightness(1.3) drop-shadow(0 0 5px rgba(255, 140, 0, 0.7));
+            }
+            25% { 
+                transform: scale(1.2) rotate(5deg);
+                filter: brightness(1.5) drop-shadow(0 0 8px rgba(255, 140, 0, 0.8));
+            }
+            50% { 
+                transform: scale(1.15) rotate(-3deg);
+                filter: brightness(1.4) drop-shadow(0 0 6px rgba(255, 140, 0, 0.75));
+            }
+            75% { 
+                transform: scale(1.25) rotate(3deg);
+                filter: brightness(1.6) drop-shadow(0 0 10px rgba(255, 140, 0, 0.85));
+            }
+        }
+        .streak-expert {
+            animation: expert-flame 1.5s ease-in-out infinite;
+            color: #FF7F00;
+        }
+        .container-expert {
+            background-image: linear-gradient(to right, #7C3AED, #4338CA);
+        }
+
+        /* Master Streak (30+ days) */
+        @keyframes master-flame {
+            0%, 100% { 
+                transform: scale(1.2) rotate(-5deg);
+                filter: brightness(1.4) drop-shadow(0 0 8px rgba(255, 69, 0, 0.8));
+            }
+            25% { 
+                transform: scale(1.3) rotate(5deg);
+                filter: brightness(1.6) drop-shadow(0 0 12px rgba(255, 69, 0, 0.9));
+            }
+            50% { 
+                transform: scale(1.25) rotate(-3deg);
+                filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 69, 0, 0.85));
+            }
+            75% { 
+                transform: scale(1.35) rotate(3deg);
+                filter: brightness(1.7) drop-shadow(0 0 15px rgba(255, 69, 0, 0.95));
+            }
+        }
+        .streak-master {
+            animation: master-flame 1.2s ease-in-out infinite;
+            color: #FF4500;
+        }
+        .container-master {
+            background-image: linear-gradient(to right, #6D28D9, #312E81);
+        }
+
+        /* Tooltip Styles */
+        .streak-tooltip {
+            visibility: hidden;
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            width: max-content;
+            max-width: 300px;
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+
+        .streak-container:hover .streak-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .achievement-level {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+        }
+
+        .achievement-level i {
+            width: 1rem;
         }
     </style>
 </head>
@@ -106,13 +299,36 @@
                     </div>
 
                     <!-- Streak Counter -->
-                    <div class="flex items-center h-[42px] bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg px-3 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                        <i class="fas fa-fire text-sm mr-2 animate-pulse text-orange-300"></i>
+                    <div id="streakContainer" class="streak-container relative flex items-center h-[42px] rounded-lg px-3 text-white shadow-lg transition-all duration-300 cursor-help">
+                        <i id="streakIcon" class="fas fa-fire text-sm mr-2 text-orange-300"></i>
                         <div class="flex flex-col justify-center leading-tight">
                             <span class="text-[10px] font-medium">Current Streak</span>
                             <div class="flex items-baseline">
                                 <span id="streakCount" class="text-base font-bold">0</span>
                                 <span class="text-[10px] ml-1">days</span>
+                            </div>
+                        </div>
+                        <div class="streak-tooltip">
+                            <div class="text-sm font-medium mb-2">Streak Achievements</div>
+                            <div class="achievement-level">
+                                <i class="fas fa-fire streak-beginner"></i>
+                                <span>Beginner (1-3 days)</span>
+                            </div>
+                            <div class="achievement-level">
+                                <i class="fas fa-fire streak-regular"></i>
+                                <span>Regular (4-8 days)</span>
+                            </div>
+                            <div class="achievement-level">
+                                <i class="fas fa-fire streak-advanced"></i>
+                                <span>Advanced (9-15 days)</span>
+                            </div>
+                            <div class="achievement-level">
+                                <i class="fas fa-fire streak-expert"></i>
+                                <span>Expert (16-30 days)</span>
+                            </div>
+                            <div class="achievement-level">
+                                <i class="fas fa-fire streak-master"></i>
+                                <span>Master (30+ days)</span>
                             </div>
                         </div>
                     </div>
@@ -247,10 +463,33 @@
             .then(data => {
                 const streak = calculateStreak(data.entries);
                 const streakElement = document.getElementById('streakCount');
-                streakElement.textContent = streak;
+                const streakIcon = document.getElementById('streakIcon');
+                const streakContainer = document.getElementById('streakContainer');
                 
-                // Add animation when streak is displayed
+                streakElement.textContent = streak;
                 streakElement.classList.add('animate-in');
+
+                // Remove any existing streak classes
+                streakIcon.className = 'fas fa-fire text-sm mr-2';
+                streakContainer.className = 'streak-container relative flex items-center h-[42px] rounded-lg px-3 text-white shadow-lg transition-all duration-300 cursor-help';
+
+                // Apply appropriate streak level
+                if (streak >= 30) {
+                    streakIcon.classList.add('streak-master');
+                    streakContainer.classList.add('container-master');
+                } else if (streak >= 16) {
+                    streakIcon.classList.add('streak-expert');
+                    streakContainer.classList.add('container-expert');
+                } else if (streak >= 9) {
+                    streakIcon.classList.add('streak-advanced');
+                    streakContainer.classList.add('container-advanced');
+                } else if (streak >= 4) {
+                    streakIcon.classList.add('streak-regular');
+                    streakContainer.classList.add('container-regular');
+                } else if (streak >= 1) {
+                    streakIcon.classList.add('streak-beginner');
+                    streakContainer.classList.add('container-beginner');
+                }
             })
             .catch(error => console.error('Error loading streak data:', error));
     </script>
