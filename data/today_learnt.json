@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2024-12-17",
+      "title": "Avro File Format",
+      "content": "Avro is an open source project that provides data serialization and data exchange services for Apache Hadoop. These services can be used together or independently.",
+      "references": [
+        {
+          "title": "Avro Official Docs",
+          "url": "https://avro.apache.org/docs/"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "system-design",
+        "data-platform",
+        "data-analytics"
+      ],
+      "notes_md": "../data/notes/avro.md"
+    },
+    {
       "date": "2024-12-16",
       "title": "Columnar Databases vs. Row-Oriented Databases",
       "content": "Choosing the right database structure determines the efficiency and performance of your application. An application's speed, scalability, and maintenance depend upon the underlying database structure. Columnar databases and row-oriented databases are two common database structures with distinct characteristics.",
