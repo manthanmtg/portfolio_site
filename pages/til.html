@@ -125,102 +125,260 @@
         }
 
         /* Beginner Streak (1-3 days) */
-        @keyframes beginner-flame {
-            0%, 100% { transform: scale(1); filter: brightness(1); }
-            50% { transform: scale(1.1); filter: brightness(1.2); }
+        @keyframes beginner-spark {
+            0%, 100% { 
+                transform: scale(1);
+                filter: brightness(1);
+                text-shadow: 0 0 5px #FFD700;
+            }
+            33% {
+                transform: scale(1.1) rotate(5deg);
+                filter: brightness(1.2);
+                text-shadow: 0 0 10px #FFD700, 0 0 20px #FFA500;
+            }
+            66% {
+                transform: scale(1.05) rotate(-5deg);
+                filter: brightness(1.1);
+                text-shadow: 0 0 15px #FFD700;
+            }
         }
         .streak-beginner {
-            animation: beginner-flame 2s ease-in-out infinite;
-            color: #FFA07A;
+            animation: beginner-spark 2s ease-in-out infinite;
+            color: #FFD700;
         }
         .container-beginner {
-            background-image: linear-gradient(to right, #818CF8, #6366F1);
+            background: linear-gradient(135deg, #4338CA, #6366F1);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
         }
 
         /* Regular Streak (4-8 days) */
-        @keyframes regular-flame {
-            0%, 100% { transform: scale(1) rotate(-3deg); filter: brightness(1.1); }
-            50% { transform: scale(1.15) rotate(3deg); filter: brightness(1.3); }
+        @keyframes flame-dance {
+            0% { transform: translate(0, 0) scale(1) rotate(-5deg); }
+            25% { transform: translate(2px, -3px) scale(1.2) rotate(5deg); }
+            50% { transform: translate(-2px, 2px) scale(1.1) rotate(-3deg); }
+            75% { transform: translate(1px, -2px) scale(1.15) rotate(4deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(-5deg); }
+        }
+        @keyframes ember-glow {
+            0%, 100% { 
+                filter: brightness(1.2);
+                text-shadow: 0 0 10px #FFA500, 0 0 20px #FF8C00;
+            }
+            50% { 
+                filter: brightness(1.4);
+                text-shadow: 0 0 15px #FFA500, 0 0 25px #FF8C00, 0 0 35px #FF4500;
+            }
         }
         .streak-regular {
-            animation: regular-flame 1.8s ease-in-out infinite;
+            animation: 
+                flame-dance 3s ease-in-out infinite,
+                ember-glow 2s ease-in-out infinite;
             color: #FFA500;
         }
         .container-regular {
-            background-image: linear-gradient(to right, #8B5CF6, #6366F1);
+            background: linear-gradient(135deg, #5B21B6, #7C3AED);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
         }
 
         /* Advanced Streak (9-15 days) */
-        @keyframes advanced-flame {
-            0%, 100% { 
-                transform: scale(1) rotate(-5deg);
-                filter: brightness(1.2) drop-shadow(0 0 3px rgba(255, 165, 0, 0.6));
+        @keyframes flame-power {
+            0% { 
+                transform: scale(1.1) rotate(-5deg) translateY(0);
+                filter: brightness(1.3) contrast(1.1);
+            }
+            25% { 
+                transform: scale(1.25) rotate(5deg) translateY(-3px);
+                filter: brightness(1.5) contrast(1.2);
             }
             50% { 
-                transform: scale(1.2) rotate(5deg);
-                filter: brightness(1.4) drop-shadow(0 0 5px rgba(255, 165, 0, 0.8));
+                transform: scale(1.15) rotate(-3deg) translateY(2px);
+                filter: brightness(1.4) contrast(1.15);
+            }
+            75% { 
+                transform: scale(1.3) rotate(4deg) translateY(-2px);
+                filter: brightness(1.6) contrast(1.25);
+            }
+            100% { 
+                transform: scale(1.1) rotate(-5deg) translateY(0);
+                filter: brightness(1.3) contrast(1.1);
+            }
+        }
+        @keyframes power-pulse {
+            0%, 100% {
+                text-shadow: 
+                    0 0 15px #FF4500,
+                    0 0 25px rgba(255, 69, 0, 0.8),
+                    0 0 35px rgba(255, 69, 0, 0.6);
+            }
+            50% {
+                text-shadow: 
+                    0 0 20px #FF4500,
+                    0 0 35px rgba(255, 69, 0, 0.9),
+                    0 0 50px rgba(255, 69, 0, 0.7);
             }
         }
         .streak-advanced {
-            animation: advanced-flame 1.5s ease-in-out infinite;
-            color: #FF8C00;
+            animation: 
+                flame-power 3s ease-in-out infinite,
+                power-pulse 2s ease-in-out infinite;
+            color: #FF4500;
         }
         .container-advanced {
-            background-image: linear-gradient(to right, #9333EA, #4F46E5);
+            background: linear-gradient(135deg, #4C1D95, #6D28D9);
+            box-shadow: 0 0 25px rgba(109, 40, 217, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        .container-advanced::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate-glow 3s linear infinite;
         }
 
         /* Expert Streak (16-30 days) */
         @keyframes expert-flame {
-            0%, 100% { 
-                transform: scale(1.1) rotate(-5deg);
-                filter: brightness(1.3) drop-shadow(0 0 5px rgba(255, 140, 0, 0.7));
+            0% { 
+                transform: scale(1.2) translate(0, 0) rotate(-8deg);
+                filter: brightness(1.4) contrast(1.3);
             }
             25% { 
-                transform: scale(1.2) rotate(5deg);
-                filter: brightness(1.5) drop-shadow(0 0 8px rgba(255, 140, 0, 0.8));
+                transform: scale(1.4) translate(-3px, -3px) rotate(8deg);
+                filter: brightness(1.7) contrast(1.4);
             }
             50% { 
-                transform: scale(1.15) rotate(-3deg);
-                filter: brightness(1.4) drop-shadow(0 0 6px rgba(255, 140, 0, 0.75));
+                transform: scale(1.3) translate(3px, -1px) rotate(-5deg);
+                filter: brightness(1.5) contrast(1.35);
             }
             75% { 
-                transform: scale(1.25) rotate(3deg);
-                filter: brightness(1.6) drop-shadow(0 0 10px rgba(255, 140, 0, 0.85));
+                transform: scale(1.5) translate(-2px, -2px) rotate(6deg);
+                filter: brightness(1.8) contrast(1.45);
+            }
+            100% { 
+                transform: scale(1.2) translate(0, 0) rotate(-8deg);
+                filter: brightness(1.4) contrast(1.3);
+            }
+        }
+        @keyframes expert-rays {
+            0%, 100% {
+                text-shadow: 
+                    0 0 20px #FF0000,
+                    0 0 35px rgba(255, 0, 0, 0.8),
+                    0 0 50px rgba(255, 0, 0, 0.6),
+                    0 0 65px rgba(255, 0, 0, 0.4);
+            }
+            50% {
+                text-shadow: 
+                    0 0 30px #FF0000,
+                    0 0 50px rgba(255, 0, 0, 0.9),
+                    0 0 70px rgba(255, 0, 0, 0.7),
+                    0 0 90px rgba(255, 0, 0, 0.5);
             }
         }
         .streak-expert {
-            animation: expert-flame 1.5s ease-in-out infinite;
-            color: #FF7F00;
+            animation: 
+                expert-flame 3s ease-in-out infinite,
+                expert-rays 2s ease-in-out infinite;
+            color: #FF0000;
         }
         .container-expert {
-            background-image: linear-gradient(to right, #7C3AED, #4338CA);
+            background: linear-gradient(135deg, #3730A3, #4C1D95);
+            box-shadow: 0 0 30px rgba(55, 48, 163, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        .container-expert::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
+            animation: rotate-glow 4s linear infinite;
         }
 
         /* Master Streak (30+ days) */
         @keyframes master-flame {
-            0%, 100% { 
-                transform: scale(1.2) rotate(-5deg);
-                filter: brightness(1.4) drop-shadow(0 0 8px rgba(255, 69, 0, 0.8));
+            0% { 
+                transform: scale(1.3) translate(0, 0) rotate(-10deg);
+                filter: brightness(1.5) contrast(1.4) hue-rotate(0deg);
             }
             25% { 
-                transform: scale(1.3) rotate(5deg);
-                filter: brightness(1.6) drop-shadow(0 0 12px rgba(255, 69, 0, 0.9));
+                transform: scale(1.6) translate(-4px, -4px) rotate(10deg);
+                filter: brightness(1.8) contrast(1.5) hue-rotate(15deg);
             }
             50% { 
-                transform: scale(1.25) rotate(-3deg);
-                filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 69, 0, 0.85));
+                transform: scale(1.4) translate(4px, -2px) rotate(-7deg);
+                filter: brightness(1.6) contrast(1.45) hue-rotate(-15deg);
             }
             75% { 
-                transform: scale(1.35) rotate(3deg);
-                filter: brightness(1.7) drop-shadow(0 0 15px rgba(255, 69, 0, 0.95));
+                transform: scale(1.7) translate(-3px, -3px) rotate(8deg);
+                filter: brightness(1.9) contrast(1.55) hue-rotate(20deg);
+            }
+            100% { 
+                transform: scale(1.3) translate(0, 0) rotate(-10deg);
+                filter: brightness(1.5) contrast(1.4) hue-rotate(0deg);
             }
         }
+        @keyframes master-aura {
+            0%, 100% {
+                text-shadow: 
+                    0 0 30px #FF00FF,
+                    0 0 45px rgba(255, 0, 255, 0.8),
+                    0 0 60px rgba(255, 0, 255, 0.6),
+                    0 0 75px rgba(255, 0, 255, 0.4),
+                    0 0 90px rgba(255, 0, 255, 0.2);
+            }
+            50% {
+                text-shadow: 
+                    0 0 40px #FF00FF,
+                    0 0 60px rgba(255, 0, 255, 0.9),
+                    0 0 80px rgba(255, 0, 255, 0.7),
+                    0 0 100px rgba(255, 0, 255, 0.5),
+                    0 0 120px rgba(255, 0, 255, 0.3);
+            }
+        }
+        @keyframes rotate-glow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         .streak-master {
-            animation: master-flame 1.2s ease-in-out infinite;
-            color: #FF4500;
+            animation: 
+                master-flame 3s ease-in-out infinite,
+                master-aura 2s ease-in-out infinite;
+            color: #FF00FF;
+            position: relative;
         }
         .container-master {
-            background-image: linear-gradient(to right, #6D28D9, #312E81);
+            background: linear-gradient(135deg, #1E1B4B, #3730A3);
+            box-shadow: 0 0 40px rgba(30, 27, 75, 0.9);
+            position: relative;
+            overflow: hidden;
+        }
+        .container-master::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,255,0.15) 0%, transparent 70%);
+            animation: rotate-glow 5s linear infinite;
+        }
+        .container-master::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,255,0.1) 0%, transparent 70%);
+            animation: rotate-glow 7s linear infinite reverse;
         }
 
         /* Tooltip Styles */
@@ -229,33 +387,52 @@
             position: absolute;
             bottom: 120%;
             left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.9);
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(17, 24, 39, 0.95);
             color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
             font-size: 0.875rem;
             width: max-content;
             max-width: 300px;
             z-index: 50;
             opacity: 0;
-            transition: opacity 0.2s, visibility 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .streak-container:hover .streak-tooltip {
             visibility: visible;
             opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         .achievement-level {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.25rem 0;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .achievement-level:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .achievement-level:first-child {
+            padding-top: 0;
         }
 
         .achievement-level i {
-            width: 1rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        .achievement-level span {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
         }
     </style>
 </head>
