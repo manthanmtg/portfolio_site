@@ -70,6 +70,25 @@
     transition: all 0.3s ease-in-out;
 }
 
+/* iPad/Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-container {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .logo a {
+        font-size: 1.3rem;
+    }
+
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     .hamburger-menu {
