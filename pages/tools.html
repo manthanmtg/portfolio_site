@@ -32,7 +32,10 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .tag-pill {
-                @apply px-3 py-1 rounded-full text-sm font-medium cursor-pointer;
+                @apply px-3 py-1 rounded-full text-sm font-medium cursor-pointer bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700;
+            }
+            .tag-pill.active {
+                @apply bg-primary text-white dark:bg-primary dark:text-white;
             }
             .category-pill {
                 @apply px-3 py-1 rounded-full text-sm font-medium;

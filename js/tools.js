@@ -162,21 +162,19 @@ function renderTagCloud(tags) {
     tags.forEach(tag => {
         const tagElement = document.createElement('span');
         tagElement.textContent = tag;
-        tagElement.classList.add('tag-pill', 'bg-gray-100', 'text-gray-800', 'dark:bg-gray-800', 'dark:text-gray-200', 'hover:bg-gray-200', 'dark:hover:bg-gray-700');
+        tagElement.classList.add('tag-pill');
+        
         if (activeFilters.tags.has(tag)) {
-            tagElement.classList.remove('bg-gray-100', 'text-gray-800', 'dark:bg-gray-800', 'dark:text-gray-200');
-            tagElement.classList.add('bg-primary', 'text-white', 'dark:bg-primary', 'dark:text-white');
+            tagElement.classList.add('active');
         }
         
         tagElement.addEventListener('click', () => {
             if (activeFilters.tags.has(tag)) {
                 activeFilters.tags.delete(tag);
-                tagElement.classList.remove('bg-primary', 'text-white', 'dark:bg-primary', 'dark:text-white');
-                tagElement.classList.add('bg-gray-100', 'text-gray-800', 'dark:bg-gray-800', 'dark:text-gray-200');
+                tagElement.classList.remove('active');
             } else {
                 activeFilters.tags.add(tag);
-                tagElement.classList.remove('bg-gray-100', 'text-gray-800', 'dark:bg-gray-800', 'dark:text-gray-200');
-                tagElement.classList.add('bg-primary', 'text-white', 'dark:bg-primary', 'dark:text-white');
+                tagElement.classList.add('active');
             }
             currentPage = 1;
             applyFilters();
