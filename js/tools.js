@@ -1,7 +1,7 @@
 let allEntries = [];
 let filteredEntries = [];
 let currentPage = 1;
-const entriesPerPage = 5;
+const entriesPerPage = 10;
 let activeFilters = {
     time: 'all',
     month: 'all',
@@ -245,10 +245,23 @@ function renderEntries(reset = false) {
         currentPage = 1;
     }
 
+    // Calculate indices for entries to show
     const startIdx = (currentPage - 1) * entriesPerPage;
     const endIdx = startIdx + entriesPerPage;
     const entriesToShow = filteredEntries.slice(startIdx, endIdx);
     
+    // If no entries found, show a message
+    if (filteredEntries.length === 0) {
+        container.innerHTML = `
+            <div class="text-center text-gray-500 dark:text-gray-400 py-8">
+                No entries found matching your filters.
+            </div>
+        `;
+        loadMoreBtn.classList.add('hidden');
+        return;
+    }
+    
+    // Render entries
     entriesToShow.forEach(entry => {
         const entryElement = document.createElement('div');
         entryElement.classList.add('bg-white', 'dark:bg-gray-800', 'rounded-lg', 'p-6', 'shadow-sm', 'hover:shadow-md', 'transition-shadow', 'duration-200', 'animate-in');
@@ -272,12 +285,16 @@ function renderEntries(reset = false) {
                 ${entry.tags.map(tag => `<span class="tag-pill">${tag}</span>`).join('')}
             </div>
             <div class="mt-4 flex flex-wrap gap-3">
-                <button onclick="showNotes('${entry.notes_path}')" class="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors duration-200">
-                    <i class="fas fa-book-open mr-2"></i>View Notes
-                </button>
+                ${entry.notes_path ? `
+                    <button onclick="showNotes('${entry.notes_path}')" class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                        <i class="fas fa-book-open"></i>
+                        Read More
+                    </button>
+                ` : ''}
                 ${entry.references ? entry.references.map(ref => 
-                    `<a href="${ref.url}" target="_blank" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
-                        <i class="fas fa-external-link-alt mr-2"></i>${ref.title}
+                    `<a href="${ref.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                        <i class="fas fa-external-link-alt"></i>
+                        ${ref.title}
                     </a>`
                 ).join('') : ''}
             </div>
@@ -285,6 +302,12 @@ function renderEntries(reset = false) {
         
         container.appendChild(entryElement);
     });
+
+    // Show total entries count
+    const totalEntriesCount = document.createElement('div');
+    totalEntriesCount.className = 'text-center text-gray-500 dark:text-gray-400 mt-4';
+    totalEntriesCount.textContent = `Showing ${Math.min(endIdx, filteredEntries.length)} of ${filteredEntries.length} entries`;
+    container.appendChild(totalEntriesCount);
 
     // Show/hide load more button
     if (endIdx >= filteredEntries.length) {
@@ -307,20 +330,24 @@ function getCategoryClass(category) {
     }
 }
 
+document.addEventListener('mousedown', function(event) {
+    const modal = document.getElementById('notesModal');
+    
+    if (modal && modal.style.display === 'flex') {
+        // Check if click is outside the modal content
+        if (!event.target.closest('.relative') && 
+            !event.target.closest('[onclick*="showNotes"]')) {
+            modal.style.display = 'none';
+        }
+    }
+});
+
 async function showNotes(notesPath) {
     const modal = document.getElementById('notesModal');
     const notesContent = modal.querySelector('.prose') || modal.querySelector('div');
     if (!modal || !notesContent) return;
     
     try {
-        // First check if file exists
-        const checkResponse = await fetch(`../${notesPath}`, { method: 'HEAD' });
-        if (!checkResponse.ok) {
-            notesContent.innerHTML = '<p class="text-gray-500">Notes not available</p>';
-            modal.style.display = 'flex';
-            return;
-        }
-        
         const response = await fetch(`../${notesPath}`);
         if (!response.ok) {
             throw new Error('Failed to fetch notes');
