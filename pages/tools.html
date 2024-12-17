@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool of the Day - Manthan B Y</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' font-family='Arial' fill='%23333'>M</text></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1F2937'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .tag-pill {
+                @apply px-3 py-1 rounded-full text-sm font-medium cursor-pointer;
+            }
+            .category-pill {
+                @apply px-3 py-1 rounded-full text-sm font-medium;
+            }
+            .category-cli {
+                @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100;
+            }
+            .category-web {
+                @apply bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100;
+            }
+            .category-dev {
+                @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100;
+            }
+        }
+    </style>
+    <style>
+        @keyframes animate-in {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-in {
+            animation: animate-in 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <div id="header-component"></div>
+
+    <main class="pt-24 pb-8 min-h-screen">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <header class="text-center mb-12">
+                <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-4 text-gray-800 dark:text-white">Tool of the Day</h1>
+                <p class="font-poppins text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Discover and learn about useful tools that can enhance your workflow.</p>
+            </header>
+
+            <div class="mb-8 space-y-4">
+                <div class="flex flex-wrap gap-4">
+                    <div class="relative flex gap-2">
+                        <select id="timeFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">All Time</option>
+                            <option value="thisMonth">This Month</option>
+                            <option value="thisYear">This Year</option>
+                        </select>
+                        
+                        <select id="monthFilter" class="hidden bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">All Months</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+
+                        <select id="categoryFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+
+                    <div class="relative flex-grow max-w-md">
+                        <input type="text" id="searchInput" placeholder="Search tools..." class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="tagCloud" class="flex flex-wrap gap-2">
+                    <!-- Tags will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div id="toolEntries" class="space-y-6">
+                <!-- Entries will be dynamically inserted here -->
+            </div>
+            
+            <div id="pagination" class="mt-8 flex justify-center gap-2">
+                <!-- Pagination will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <!-- Notes Modal -->
+    <div id="notesModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-[9999]">
+        <div class="relative bg-white dark:bg-gray-800 rounded-lg p-6 max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" onclick="document.getElementById('notesModal').style.display = 'none'">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="notesContent" class="prose dark:prose-invert max-w-none">
+                <!-- Notes content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/utils/components.js"></script>
+    <script src="../js/header-menu.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/tools.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('header-component', '../components/header.html');
+            loadComponent('footer-component', '../components/footer.html');
+        });
+    </script>
+</body>
+</html>

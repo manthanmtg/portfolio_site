@@ -1,0 +1,23 @@
+{
+  "entries": [
+    {
+      "date": "2024-12-17",
+      "title": "ripgrep",
+      "description": "A blazingly fast line-oriented search tool that recursively searches the current directory for a regex pattern.",
+      "content": "ripgrep is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files.",
+      "references": [
+        {
+          "title": "ripgrep GitHub",
+          "url": "https://github.com/BurntSushi/ripgrep"
+        }
+      ],
+      "category": "cli",
+      "tags": [
+        "search",
+        "cli",
+        "productivity"
+      ],
+      "notes_path": "ripgrep.md"
+    }
+  ]
+}

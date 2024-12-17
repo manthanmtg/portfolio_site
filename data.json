@@ -15,6 +15,7 @@
             {"text": "Research", "href": "#research"},
             {"text": "Blogs", "href": "pages/blogs.html"},
             {"text": "TIL", "href": "pages/til.html"},
+            {"text": "TOTD", "href": "pages/tools.html"},
             {"text": "Contact", "href": "#contact"}
         ]
     },
