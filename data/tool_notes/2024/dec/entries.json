@@ -18,6 +18,24 @@
         "productivity"
       ],
       "notes_path": "ripgrep.md"
+    },
+    {
+      "date": "2024-12-17",
+      "title": "zip",
+      "description": "package and compress (archive) files",
+      "content": "The zip program puts one or more compressed files into a single zip archive, along with information about the files (name, path, date, time of last modification, protection, and check information to verify file integrity). An entire directory structure can be packed into a zip archive with a single command. Compression ratios of 2:1 to 3:1 are common for text files. zip has one compression method (deflation) and can also store files without compression. zip automatically chooses the better of the two for each file to be compressed.",
+      "category": "cli",
+      "tags": [
+        "cli",
+        "productivity"
+      ],
+      "references": [
+        {
+          "title": "Zip Manual",
+          "url": "http://www.linuxguide.it/command_line/linux-manpage/do.php?file=zip"
+        }
+      ],
+      "notes_path": "zip.md"
     }
   ]
 }
