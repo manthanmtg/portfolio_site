@@ -36,8 +36,8 @@ async function initializePage() {
         let monthsLoaded = 0;
         let monthsChecked = 0;
         
-        // TODO: Change this 60 to 120, if updates are done to this webpage
-        while (monthsToLoad > monthsLoaded && year >= startYear && monthsChecked < 60) { // 120 months = 10 years
+        // TODO: Change this 12 to 120, if updates are done to this webpage
+        while (monthsToLoad > monthsLoaded && year >= startYear && monthsChecked < 12) { // 120 months = 10 years
             const monthName = getMonthName(new Date(year, currentMonth));
             const url = `../data/tool_notes/${year}/${monthName}/entries.json`;
             
