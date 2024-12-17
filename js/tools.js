@@ -111,16 +111,16 @@ async function initializePage() {
 }
 
 function setupEventListeners() {
-    // Time filter
     const timeFilter = document.getElementById('timeFilter');
     const monthFilter = document.getElementById('monthFilter');
     const categoryFilter = document.getElementById('categoryFilter');
+    const searchInput = document.getElementById('searchInput');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
 
-    timeFilter.addEventListener('change', (e) => {
-        activeFilters.time = e.target.value;
-        if (e.target.value === 'all') {
+    timeFilter.addEventListener('change', () => {
+        const selectedYear = timeFilter.value;
+        if (selectedYear === 'all') {
             monthFilter.classList.add('hidden');
-            activeFilters.month = 'all';
         } else {
             monthFilter.classList.remove('hidden');
         }
@@ -128,30 +128,24 @@ function setupEventListeners() {
         applyFilters();
     });
 
-    // Month filter
-    monthFilter.addEventListener('change', (e) => {
-        activeFilters.month = e.target.value;
+    monthFilter.addEventListener('change', () => {
         currentPage = 1;
         applyFilters();
     });
 
-    // Category filter
-    categoryFilter.addEventListener('change', (e) => {
-        activeFilters.category = e.target.value;
+    categoryFilter.addEventListener('change', () => {
         currentPage = 1;
         applyFilters();
     });
 
-    // Search input
-    const searchInput = document.getElementById('searchInput');
-    let debounceTimer;
-    searchInput.addEventListener('input', (e) => {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => {
-            activeFilters.search = e.target.value.toLowerCase();
-            currentPage = 1;
-            applyFilters();
-        }, 300);
+    searchInput.addEventListener('input', debounce(() => {
+        currentPage = 1;
+        applyFilters();
+    }, 300));
+
+    loadMoreBtn.addEventListener('click', () => {
+        currentPage++;
+        renderEntries(false);
     });
 }
 
@@ -198,29 +192,25 @@ function renderCategoryFilter(categories) {
 
 function applyFilters() {
     filteredEntries = allEntries.filter(entry => {
-        // Time and month filter
-        if (activeFilters.time !== 'all') {
-            const entryDate = new Date(entry.date);
-            const currentDate = new Date();
-            
-            if (activeFilters.time === 'thisMonth') {
-                if (entryDate.getMonth() !== currentDate.getMonth() || 
-                    entryDate.getFullYear() !== currentDate.getFullYear()) {
-                    return false;
-                }
-            } else if (activeFilters.time === 'thisYear') {
-                if (entryDate.getFullYear() !== currentDate.getFullYear()) {
-                    return false;
-                }
-                if (activeFilters.month !== 'all' && 
-                    entryDate.getMonth() !== parseInt(activeFilters.month) - 1) {
-                    return false;
-                }
+        const entryDate = new Date(entry.date);
+        const selectedYear = document.getElementById('timeFilter').value;
+        const selectedMonth = document.getElementById('monthFilter').value;
+        const selectedCategory = document.getElementById('categoryFilter').value;
+        const searchQuery = document.getElementById('searchInput')?.value?.toLowerCase() || '';
+
+        // Year filter
+        if (selectedYear !== 'all') {
+            if (entryDate.getFullYear().toString() !== selectedYear) {
+                return false;
+            }
+            // Month filter (only if year is selected)
+            if (selectedMonth !== 'all' && entryDate.getMonth() + 1 !== parseInt(selectedMonth)) {
+                return false;
             }
         }
 
         // Category filter
-        if (activeFilters.category !== 'all' && entry.category !== activeFilters.category) {
+        if (selectedCategory !== 'all' && entry.category !== selectedCategory) {
             return false;
         }
 
@@ -232,8 +222,8 @@ function applyFilters() {
         }
 
         // Search filter
-        if (activeFilters.search) {
-            const searchText = activeFilters.search.toLowerCase();
+        if (searchQuery) {
+            const searchText = searchQuery.toLowerCase();
             return entry.title.toLowerCase().includes(searchText) ||
                    entry.content.toLowerCase().includes(searchText) ||
                    entry.description.toLowerCase().includes(searchText) ||
@@ -248,41 +238,38 @@ function applyFilters() {
 
 function renderEntries(reset = false) {
     const container = document.getElementById('toolEntries');
-    const totalPages = Math.ceil(filteredEntries.length / entriesPerPage);
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
     
     if (reset) {
         container.innerHTML = '';
+        currentPage = 1;
     }
-    
-    const start = (currentPage - 1) * entriesPerPage;
-    const end = start + entriesPerPage;
-    const entriesToShow = filteredEntries.slice(start, end);
+
+    const startIdx = (currentPage - 1) * entriesPerPage;
+    const endIdx = startIdx + entriesPerPage;
+    const entriesToShow = filteredEntries.slice(startIdx, endIdx);
     
     entriesToShow.forEach(entry => {
         const entryElement = document.createElement('div');
         entryElement.classList.add('bg-white', 'dark:bg-gray-800', 'rounded-lg', 'p-6', 'shadow-sm', 'hover:shadow-md', 'transition-shadow', 'duration-200', 'animate-in');
-        entryElement.id = `entry-${entry.date}`;
         
         const date = new Date(entry.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
         });
-        
+
         entryElement.innerHTML = `
             <div class="flex justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">${entry.title}</h3>
-                <span class="text-sm text-gray-500 dark:text-gray-400">${date}</span>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 mb-2 italic">${entry.description}</p>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">${entry.content}</p>
-            <div class="flex justify-between items-center flex-wrap gap-4">
-                <div class="flex flex-wrap gap-2">
-                    ${entry.tags.map(tag => 
-                        `<span class="tag-pill bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200">${tag}</span>`
-                    ).join('')}
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">${entry.title}</h3>
+                    <time class="text-sm text-gray-500 dark:text-gray-400">${date}</time>
                 </div>
-                <span class="category-pill category-${entry.category}">${entry.category}</span>
+                <span class="category-pill ${getCategoryClass(entry.category)}">${entry.category}</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">${entry.content}</p>
+            <div class="flex flex-wrap gap-2">
+                ${entry.tags.map(tag => `<span class="tag-pill">${tag}</span>`).join('')}
             </div>
             <div class="mt-4 flex flex-wrap gap-3">
                 <button onclick="showNotes('${entry.notes_path}')" class="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors duration-200">
@@ -298,85 +285,26 @@ function renderEntries(reset = false) {
         
         container.appendChild(entryElement);
     });
-    
-    updatePagination(totalPages);
+
+    // Show/hide load more button
+    if (endIdx >= filteredEntries.length) {
+        loadMoreBtn.classList.add('hidden');
+    } else {
+        loadMoreBtn.classList.remove('hidden');
+    }
 }
 
-function updatePagination(totalPages) {
-    const pagination = document.getElementById('pagination');
-    pagination.innerHTML = '';
-    
-    if (totalPages <= 1) {
-        pagination.style.display = 'none';
-        return;
+function getCategoryClass(category) {
+    switch (category) {
+        case 'category1':
+            return 'bg-red-100 text-red-800';
+        case 'category2':
+            return 'bg-orange-100 text-orange-800';
+        case 'category3':
+            return 'bg-yellow-100 text-yellow-800';
+        default:
+            return 'bg-gray-100 text-gray-800';
     }
-    
-    pagination.style.display = 'flex';
-    
-    // Previous button
-    const prevButton = document.createElement('button');
-    prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
-    prevButton.classList.add('px-3', 'py-2', 'rounded-lg', 'bg-white', 'dark:bg-gray-800', 'border', 'border-gray-300', 'dark:border-gray-600', 'text-gray-700', 'dark:text-gray-300', 'hover:bg-gray-50', 'dark:hover:bg-gray-700', 'disabled:opacity-50', 'disabled:cursor-not-allowed');
-    prevButton.disabled = currentPage === 1;
-    prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            renderEntries(true);
-        }
-    });
-    pagination.appendChild(prevButton);
-    
-    // Page numbers
-    for (let i = 1; i <= totalPages; i++) {
-        const pageButton = document.createElement('button');
-        pageButton.textContent = i;
-        pageButton.classList.add('px-3', 'py-2', 'rounded-lg', 'border', 'border-gray-300', 'dark:border-gray-600', 'hover:bg-gray-50', 'dark:hover:bg-gray-700');
-        
-        if (i === currentPage) {
-            pageButton.classList.add('bg-primary', 'text-white', 'border-primary');
-            pageButton.classList.remove('hover:bg-gray-50', 'dark:hover:bg-gray-700');
-        } else {
-            pageButton.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
-        }
-        
-        pageButton.addEventListener('click', () => {
-            currentPage = i;
-            renderEntries(true);
-        });
-        pagination.appendChild(pageButton);
-    }
-    
-    // Next button
-    const nextButton = document.createElement('button');
-    nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
-    nextButton.classList.add('px-3', 'py-2', 'rounded-lg', 'bg-white', 'dark:bg-gray-800', 'border', 'border-gray-300', 'dark:border-gray-600', 'text-gray-700', 'dark:text-gray-300', 'hover:bg-gray-50', 'dark:hover:bg-gray-700', 'disabled:opacity-50', 'disabled:cursor-not-allowed');
-    nextButton.disabled = currentPage === totalPages;
-    nextButton.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            renderEntries(true);
-        }
-    });
-    pagination.appendChild(nextButton);
-}
-
-function setupNotesModal() {
-    const modal = document.getElementById('notesModal');
-    if (!modal) return;
-    
-    // Close on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.style.display === 'flex') {
-            modal.style.display = 'none';
-        }
-    });
-    
-    // Close on click outside
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
 }
 
 async function showNotes(notesPath) {
@@ -429,3 +357,17 @@ window.addEventListener('load', () => {
         console.error('Initialization failed:', error);
     });
 });
+
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const context = this;
+        const args = arguments;
+        const later = function() {
+            timeout = null;
+            func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}

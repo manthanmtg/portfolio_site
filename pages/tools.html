@@ -78,10 +78,9 @@
                     <div class="relative flex gap-2">
                         <select id="timeFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
                             <option value="all">All Time</option>
-                            <option value="thisMonth">This Month</option>
-                            <option value="thisYear">This Year</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
                         </select>
-                        
                         <select id="monthFilter" class="hidden bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
                             <option value="all">All Months</option>
                             <option value="1">January</option>
@@ -97,7 +96,6 @@
                             <option value="11">November</option>
                             <option value="12">December</option>
                         </select>
-
                         <select id="categoryFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
                             <option value="all">All Categories</option>
                         </select>
@@ -120,6 +118,12 @@
                 <!-- Entries will be dynamically inserted here -->
             </div>
             
+            <div class="text-center mt-8">
+                <button id="loadMoreBtn" class="bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors duration-200">
+                    Load More
+                </button>
+            </div>
+
             <div id="pagination" class="mt-8 flex justify-center gap-2">
                 <!-- Pagination will be dynamically inserted here -->
             </div>
