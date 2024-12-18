@@ -353,7 +353,23 @@ async function showNotes(notesPath) {
             throw new Error('Failed to fetch notes');
         }
         const markdown = await response.text();
+        
+        // Configure marked first
+        marked.setOptions({
+            highlight: function(code, lang) {
+                if (Prism.languages[lang]) {
+                    return Prism.highlight(code, Prism.languages[lang], lang);
+                }
+                return code;
+            }
+        });
+
+        // Then parse your markdown
         notesContent.innerHTML = marked.parse(markdown);
+
+        // Important: Call Prism.highlightAll() after setting innerHTML
+        Prism.highlightAll();
+
         modal.style.display = 'flex';
         
         // Highlight code blocks if highlight.js is available
