@@ -361,7 +361,9 @@ async function showNotes(notesPath) {
                     return Prism.highlight(code, Prism.languages[lang], lang);
                 }
                 return code;
-            }
+            },
+            gfm: true,  // GitHub Flavored Markdown
+            breaks: true
         });
 
         // Then parse your markdown
