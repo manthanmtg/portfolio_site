@@ -1,6 +1,31 @@
 {
   "entries": [
     {
+      "date": "2024-12-18",
+      "title": "sqlglot",
+      "description": "A powerful SQL parser, formatter, and transpiler that enables seamless conversion between different SQL dialects and provides programmatic SQL manipulation capabilities.",
+      "content": "SQLGlot is a robust Python library designed for SQL parsing, analysis, and transformation. It excels at converting SQL between different dialects including MySQL, PostgreSQL, Snowflake, BigQuery, Spark, and others. The library provides a comprehensive SQL parser that generates abstract syntax trees (ASTs), allowing for sophisticated query analysis and manipulation. Key features include query optimization, schema inference, and automated SQL formatting. SQLGlot is particularly valuable for data engineers working with multiple SQL dialects or building tools for SQL analysis and transformation.",
+      "references": [
+        {
+          "title": "SQLGlot GitHub",
+          "url": "https://github.com/tobymao/sqlglot"
+        },
+        {
+          "title": "SQLGlot Docs",
+          "url": "https://sqlglot.com/sqlglot.html"
+        }
+      ],
+      "category": "library",
+      "tags": [
+        "sql",
+        "parser",
+        "transpiler",
+        "python",
+        "data-engineering"
+      ],
+      "notes_path": "sqlglot.md"
+    },
+    {
       "date": "2024-12-17",
       "title": "ripgrep",
       "description": "A blazingly fast line-oriented search tool that recursively searches the current directory for a regex pattern.",
