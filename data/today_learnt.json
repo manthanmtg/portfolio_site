@@ -1,6 +1,22 @@
 {
   "entries": [
     {
+      "date": "2024-12-18",
+      "title": "Python tip: always specify your file encoding",
+      "content": "Always specify file encoding when opening files in Python to prevent cross-platform text handling errors between different operating systems.",
+      "references": [
+        {
+          "title": "Guide to Character encoding",
+          "url": "https://www.honeybadger.io/blog/python-character-encoding/"
+        }
+      ],
+      "difficulty": "medium",
+      "tags": [
+        "python"
+      ],
+      "notes_md": "../data/notes/py_file_encoding.md"
+    },
+    {
       "date": "2024-12-17",
       "title": "Avro File Format",
       "content": "Avro is an open source project that provides data serialization and data exchange services for Apache Hadoop. These services can be used together or independently.",
