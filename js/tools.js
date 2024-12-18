@@ -368,6 +368,20 @@ async function showNotes(notesPath) {
             mangle: false,      // Don't mangle header IDs
         });
 
+        // Add click handler for table of contents links
+        document.addEventListener('click', function(event) {
+            if (event.target.tagName === 'A' && event.target.getAttribute('href').startsWith('#')) {
+                event.preventDefault();
+                const targetId = event.target.getAttribute('href').slice(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+
         // Then parse your markdown
         notesContent.innerHTML = marked.parse(markdown);
 
