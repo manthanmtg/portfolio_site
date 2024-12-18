@@ -264,8 +264,25 @@ async function showNotes(notesPath) {
         if (!response.ok) throw new Error('Failed to load notes');
         
         const markdownText = await response.text();
-        // Convert markdown to HTML (you'll need to add marked.js to your HTML)
+        // Configure marked to use Prism.js for syntax highlighting
+        marked.setOptions({
+            highlight: function(code, lang) {
+                if (Prism.languages[lang]) {
+                    return Prism.highlight(code, Prism.languages[lang], lang);
+                }
+                return code;
+            },
+            gfm: true,  // GitHub Flavored Markdown
+            breaks: true,
+            headerIds: true,     // Enable header IDs
+            mangle: false,      // Don't mangle header IDs
+        });
+        
+        // Convert markdown to HTML with syntax highlighting
         notesContent.innerHTML = marked.parse(markdownText);
+        
+        // Highlight any code blocks that were added dynamically
+        Prism.highlightAllUnder(notesContent);
         
         modal.classList.remove('hidden');
         modal.classList.add('flex');
