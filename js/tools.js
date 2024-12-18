@@ -363,7 +363,9 @@ async function showNotes(notesPath) {
                 return code;
             },
             gfm: true,  // GitHub Flavored Markdown
-            breaks: true
+            breaks: true,
+            headerIds: true,     // Enable header IDs
+            mangle: false,      // Don't mangle header IDs
         });
 
         // Then parse your markdown
