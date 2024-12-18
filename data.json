@@ -150,6 +150,12 @@
                 "description": "A local go-links system that lets you access websites quickly by typing go/shortlink in your browser, similar to Google's internal tool.",
                 "techStack": ["Python", "Flask", "SQLite", "HTML"],
                 "link": "https://github.com/manthanmtg/golinks-local"
+            },
+            {
+                "title": "Live Differ",
+                "description": "A real-time file difference viewer that automatically updates when files change. Live Differ provides an intuitive web interface for comparing files side-by-side with real-time updates when either file is modified.",
+                "techStack": ["Python", "Flask", "CSS", "HTML", "JavaScript"],
+                "link": "https://github.com/manthanmtg/live_differ"
             }
         ]
     },
