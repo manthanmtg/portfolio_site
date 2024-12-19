@@ -32,14 +32,304 @@
         },
         {
             "type": "series",
-            "title": "Python Mastery Series",
-            "description": "A comprehensive guide to mastering Python programming",
+            "title": "Zero to Hero in Python in 30 days",
+            "description": "Article series for python beginners.",
             "series_items": [
                 {
-                    "title": "Zero to Hero in Python in 30 Days",
-                    "description": "Published on Medium \u2022 6000+ views \u2022 2500+ reads",
+                    "title": "Zero to Hero in Python in 30 days: Day 28: Exceptions",
+                    "description": "Zero to Hero in Python in 30 days: Day 28: Exceptions",
                     "date": "2023-12-01",
-                    "link": "#",
+                    "link": "https://medium.com/me/stats/post/754bd39c4ddf?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 27: Comprehensions",
+                    "description": "Zero to Hero in Python in 30 days: Day 27: Comprehensions",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/ded1d22a668b?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 26: File I/O Part II",
+                    "description": "Zero to Hero in Python in 30 days: Day 26: File I/O Part II",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/b87e1ce47d7d?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 25: File I/O Part I",
+                    "description": "Zero to Hero in Python in 30 days: Day 25: File I/O Part I",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/40046ec90ef9?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 24: Modules",
+                    "description": "Zero to Hero in Python in 30 days: Day 24: Modules",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/782bda84faa5?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 23: Object Lifecycle",
+                    "description": "Zero to Hero in Python in 30 days: Day 23: Object Lifecycle",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/59ea0c2e6cd7?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 22: Instance, Class and Static Methods",
+                    "description": "Zero to Hero in Python in 30 days: Day 22: Instance, Class and Static Methods",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/8c68ea2b285d?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 21: Classes",
+                    "description": "Zero to Hero in Python in 30 days: Day 21: Classes",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/f9e783e2bb27?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 20: Basic Introduction to OOP",
+                    "description": "Zero to Hero in Python in 30 days: Day 20: Basic Introduction to OOP",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/637596033c86?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 19: Using Python Tutor",
+                    "description": "Zero to Hero in Python in 30 days: Day 19: Using Python Tutor",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/e67ad0569ec1?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 18: Dictionaries",
+                    "description": "Zero to Hero in Python in 30 days: Day 18: Dictionaries",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/d5aa08171276?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 17: Sets",
+                    "description": "Zero to Hero in Python in 30 days: Day 17: Sets",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/bb4cc5df0fe9?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 16: Tuples",
+                    "description": "Zero to Hero in Python in 30 days: Day 16: Tuples",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/de2901e51921?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 15: List Methods",
+                    "description": "Zero to Hero in Python in 30 days: Day 15: List Methods",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/5d221bdbf3a6?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 14: Lists",
+                    "description": "Zero to Hero in Python in 30 days: Day 14: Lists",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/a76fc7ee9043?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 13: String Methods",
+                    "description": "Zero to Hero in Python in 30 days: Day 13: String Methods",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/8f00d02d669?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 12: Strings Part II",
+                    "description": "Zero to Hero in Python in 30 days: Day 12: Strings Part II",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/5735cb743f93?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 11: Strings Part I",
+                    "description": "Zero to Hero in Python in 30 days: Day 11: Strings Part I",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/1226f3b57705?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Understanding Python Data Model: A Simple Introduction",
+                    "description": "Understanding Python Data Model: A Simple Introduction",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/da60a886c99b?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 10: Functions Part II",
+                    "description": "Zero to Hero in Python in 30 days: Day 10: Functions Part II",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/ffb55b0b3fda?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 9: Functions Part I",
+                    "description": "Zero to Hero in Python in 30 days: Day 9: Functions Part I",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/c68ed0569f2d?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 8: Taking input from the user and the type() function",
+                    "description": "Zero to Hero in Python in 30 days: Day 8: Taking input from the user and the type() function",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/1ec7c6d75929?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 7: Flow Control Part II",
+                    "description": "Zero to Hero in Python in 30 days: Day 7: Flow Control Part II",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/ef1f3f425138?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 6: Flow Control Part I",
+                    "description": "Zero to Hero in Python in 30 days: Day 6: Flow Control Part I",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/516723c4382b?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 5: Print function, Comments",
+                    "description": "Zero to Hero in Python in 30 days: Day 5: Print function, Comments",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/352f6048cd40?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 4: Operators Part II",
+                    "description": "Zero to Hero in Python in 30 days: Day 4: Operators Part II",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/3bcb9fa48193?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 3: Operators Part I",
+                    "description": "Zero to Hero in Python in 30 days: Day 3: Operators Part I",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/7d8d84810f20?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 Days: Day 2: Values, Variables, Expressions",
+                    "description": "Zero to Hero in Python in 30 Days: Day 2: Values, Variables, Expressions",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/3d2642a4e74c?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 days: Day 1: Terminologies and first Python Program",
+                    "description": "Zero to Hero in Python in 30 days: Day 1: Terminologies and first Python Program",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/8dacb3aaf9d0?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
+                    "tags": [
+                        "python",
+                        "beginners"
+                    ]
+                },
+                {
+                    "title": "Zero to Hero in Python in 30 Days: Day 0: Getting Started with Python",
+                    "description": "Zero to Hero in Python in 30 Days: Day 0: Getting Started with Python",
+                    "date": "2023-12-01",
+                    "link": "https://medium.com/me/stats/post/4edbfafa5fcc?statsForAllStoriesUrl=https%3A%2F%2Fmedium.com%2Fme%2Fstats&source=stats_homepage-------------------------------------",
                     "tags": [
                         "python",
                         "beginners"
