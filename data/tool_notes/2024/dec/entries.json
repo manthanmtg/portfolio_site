@@ -1,6 +1,25 @@
 {
   "entries": [
     {
+      "date": "2024-12-19",
+      "title": "caffeinate",
+      "description": "The caffeinate command is a macOS feature that keeps your Mac from sleeping",
+      "content": "The caffeinate command is a built-in macOS utility that prevents your system from going to sleep.",
+      "references": [
+        {
+          "title": "caffeinate manual",
+          "url": "https://ss64.com/mac/caffeinate.html"
+        }
+      ],
+      "category": "cli",
+      "tags": [
+        "productivity",
+        "cli",
+        "dev-tools"
+      ],
+      "notes_path": "caffeinate.md"
+    },
+    {
       "date": "2024-12-18",
       "title": "sqlglot",
       "description": "A powerful SQL parser, formatter, and transpiler that enables seamless conversion between different SQL dialects and provides programmatic SQL manipulation capabilities.",
