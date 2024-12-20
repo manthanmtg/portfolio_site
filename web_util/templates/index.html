@@ -198,6 +198,10 @@
                                         <label class="form-label">Notes (Markdown)</label>
                                         <textarea class="form-control markdown-input" rows="10" name="notes" required></textarea>
                                     </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="tilCommitCheck" name="commit" checked>
+                                        <label class="form-check-label" for="tilCommitCheck">Commit and push to git</label>
+                                    </div>
                                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
                                 </form>
                             </div>
@@ -258,6 +262,10 @@
                                         <label class="form-label">Notes (Markdown)</label>
                                         <textarea class="form-control markdown-input" rows="10" name="notes" required></textarea>
                                     </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="totdCommitCheck" name="commit" checked>
+                                        <label class="form-check-label" for="totdCommitCheck">Commit and push to git</label>
+                                    </div>
                                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
                                 </form>
                             </div>
@@ -281,7 +289,76 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ url_for('static', filename='main.js') }}"></script>
     <script>
+        async function handleFormSubmit(formId, type) {
+            const form = document.getElementById(formId);
+            form.onsubmit = async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = {
+                    date: formData.get('date'),
+                    notes_name: formData.get('notes_name'),
+                    notes: formData.get('notes'),
+                    tags: Array.from(formData.getAll('tags')),
+                };
+                
+                if (type === 'til') {
+                    data.title = formData.get('title');
+                    data.difficulty = formData.get('difficulty');
+                    data.content = formData.get('content');
+                    data.references = JSON.parse(formData.get('references') || '[]');
+                } else {
+                    data.name = formData.get('name');
+                    data.category = formData.get('category');
+                    data.description = formData.get('description');
+                }
+                
+                try {
+                    // Submit the entry
+                    const submitEndpoint = type === 'til' ? '/submit_til' : '/submit_totd';
+                    const response = await fetch(submitEndpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    if (!response.ok) throw new Error('Failed to submit entry');
+                    
+                    // If commit is checked, commit to git
+                    const commitChecked = document.getElementById(type + 'CommitCheck').checked;
+                    if (commitChecked) {
+                        const gitResponse = await fetch('/git_commit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                type: type,
+                                date: data.date,
+                                title: data.title || data.name,
+                                notes_name: data.notes_name
+                            })
+                        });
+                        
+                        const gitResult = await gitResponse.json();
+                        if (!gitResult.success) {
+                            alert('Entry saved but git operation failed: ' + gitResult.message);
+                            return;
+                        }
+                    }
+                    
+                    alert('Entry submitted successfully!');
+                    form.reset();
+                    
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                }
+            };
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize form handlers
+            handleFormSubmit('tilForm', 'til');
+            handleFormSubmit('totdForm', 'totd');
+            
             // Initialize Select2 for TIL tags
             fetch('/get_tags')
                 .then(response => response.json())

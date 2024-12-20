@@ -5,6 +5,7 @@ import markdown
 from markdown.extensions import fenced_code, codehilite, tables
 from datetime import datetime
 from pathlib import Path
+import subprocess
 
 app = Flask(__name__)
 
@@ -48,6 +49,21 @@ def load_existing_tool_tags():
                         except (json.JSONDecodeError, FileNotFoundError):
                             continue
     return sorted(list(tags))
+
+def git_commit_and_push(files, commit_message):
+    try:
+        # Add files
+        subprocess.run(['git', 'add'] + files, check=True)
+        
+        # Commit changes
+        subprocess.run(['git', 'commit', '-m', commit_message], check=True)
+        
+        # Push changes
+        subprocess.run(['git', 'push'], check=True)
+        
+        return True, "Changes committed and pushed successfully"
+    except subprocess.CalledProcessError as e:
+        return False, f"Git operation failed: {str(e)}"
 
 @app.route('/')
 def index():
@@ -156,6 +172,29 @@ def get_tool_tags():
 def get_categories():
     categories = ["cli", "web", "desktop", "mobile", "library", "other"]
     return jsonify(categories)
+
+@app.route('/git_commit', methods=['POST'])
+def handle_git_commit():
+    data = request.json
+    entry_type = data.get('type')  # 'til' or 'totd'
+    date = datetime.strptime(data['date'], '%Y-%m-%d')
+    year = str(date.year)
+    month = date.strftime("%b").lower()
+    
+    if entry_type == 'til':
+        base_path = Path(f"../data/til_notes/{year}/{month}")
+        commit_message = f"Add TIL: {data.get('title')}"
+    else:
+        base_path = Path(f"../data/tool_notes/{year}/{month}")
+        commit_message = f"Add Tool: {data.get('title')}"
+    
+    files_to_commit = [
+        str(base_path / "entries.json"),
+        str(base_path / f"{data['notes_name']}.md")
+    ]
+    
+    success, message = git_commit_and_push(files_to_commit, commit_message)
+    return jsonify({"success": success, "message": message})
 
 if __name__ == '__main__':
     app.run(debug=True)
