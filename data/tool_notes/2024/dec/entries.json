@@ -3,7 +3,6 @@
     {
       "date": "2024-12-19",
       "title": "caffeinate",
-      "description": "The caffeinate command is a macOS feature that keeps your Mac from sleeping",
       "content": "The caffeinate command is a built-in macOS utility that prevents your system from going to sleep.",
       "references": [
         {
@@ -22,7 +21,6 @@
     {
       "date": "2024-12-18",
       "title": "sqlglot",
-      "description": "A powerful SQL parser, formatter, and transpiler that enables seamless conversion between different SQL dialects and provides programmatic SQL manipulation capabilities.",
       "content": "SQLGlot is a robust Python library designed for SQL parsing, analysis, and transformation. It excels at converting SQL between different dialects including MySQL, PostgreSQL, Snowflake, BigQuery, Spark, and others. The library provides a comprehensive SQL parser that generates abstract syntax trees (ASTs), allowing for sophisticated query analysis and manipulation. Key features include query optimization, schema inference, and automated SQL formatting. SQLGlot is particularly valuable for data engineers working with multiple SQL dialects or building tools for SQL analysis and transformation.",
       "references": [
         {
@@ -47,7 +45,6 @@
     {
       "date": "2024-12-17",
       "title": "ripgrep",
-      "description": "A blazingly fast line-oriented search tool that recursively searches the current directory for a regex pattern.",
       "content": "ripgrep is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files.",
       "references": [
         {
@@ -66,7 +63,6 @@
     {
       "date": "2024-12-17",
       "title": "zip",
-      "description": "package and compress (archive) files",
       "content": "The zip program puts one or more compressed files into a single zip archive, along with information about the files (name, path, date, time of last modification, protection, and check information to verify file integrity). An entire directory structure can be packed into a zip archive with a single command. Compression ratios of 2:1 to 3:1 are common for text files. zip has one compression method (deflation) and can also store files without compression. zip automatically chooses the better of the two for each file to be compressed.",
       "category": "cli",
       "tags": [

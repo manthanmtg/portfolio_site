@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIL & TOTD Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        /* Syntax highlighting styles */
+        .codehilite .hll { background-color: #ffffcc }
+        .codehilite .c { color: #999988; font-style: italic } /* Comment */
+        .codehilite .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .codehilite .k { color: #000000; font-weight: bold } /* Keyword */
+        .codehilite .o { color: #000000; font-weight: bold } /* Operator */
+        .codehilite .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .codehilite .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .codehilite .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .codehilite .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .codehilite .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .codehilite .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .codehilite .gr { color: #aa0000 } /* Generic.Error */
+        .codehilite .gh { color: #999999 } /* Generic.Heading */
+        .codehilite .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .codehilite .go { color: #888888 } /* Generic.Output */
+        .codehilite .gp { color: #555555 } /* Generic.Prompt */
+        .codehilite .gs { font-weight: bold } /* Generic.Strong */
+        .codehilite .gu { color: #aaaaaa } /* Generic.Subheading */
+        .codehilite .gt { color: #aa0000 } /* Generic.Traceback */
+        .codehilite .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .codehilite .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .codehilite .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .codehilite .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .codehilite .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .codehilite .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .codehilite .m { color: #009999 } /* Literal.Number */
+        .codehilite .s { color: #d01040 } /* Literal.String */
+        .codehilite .na { color: #008080 } /* Name.Attribute */
+        .codehilite .nb { color: #0086B3 } /* Name.Builtin */
+        .codehilite .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .codehilite .no { color: #008080 } /* Name.Constant */
+        .codehilite .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .codehilite .ni { color: #800080 } /* Name.Entity */
+        .codehilite .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .codehilite .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .codehilite .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .codehilite .nn { color: #555555 } /* Name.Namespace */
+        .codehilite .nt { color: #000080 } /* Name.Tag */
+        .codehilite .nv { color: #008080 } /* Name.Variable */
+        .codehilite .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+        .codehilite .mf { color: #009999 } /* Literal.Number.Float */
+        .codehilite .mh { color: #009999 } /* Literal.Number.Hex */
+        .codehilite .mi { color: #009999 } /* Literal.Number.Integer */
+        .codehilite .mo { color: #009999 } /* Literal.Number.Oct */
+        .codehilite .sb { color: #d01040 } /* Literal.String.Backtick */
+        .codehilite .sc { color: #d01040 } /* Literal.String.Char */
+        .codehilite .sd { color: #d01040 } /* Literal.String.Doc */
+        .codehilite .s2 { color: #d01040 } /* Literal.String.Double */
+        .codehilite .se { color: #d01040 } /* Literal.String.Escape */
+        .codehilite .sh { color: #d01040 } /* Literal.String.Heredoc */
+        .codehilite .si { color: #d01040 } /* Literal.String.Interpol */
+        .codehilite .sx { color: #d01040 } /* Literal.String.Other */
+        .codehilite .sr { color: #009926 } /* Literal.String.Regex */
+        .codehilite .s1 { color: #d01040 } /* Literal.String.Single */
+        .codehilite .ss { color: #990073 } /* Literal.String.Symbol */
+        .codehilite .bp { color: #999999 } /* Name.Builtin.Pseudo */
+        .codehilite .vc { color: #008080 } /* Name.Variable.Class */
+        .codehilite .vg { color: #008080 } /* Name.Variable.Global */
+        .codehilite .vi { color: #008080 } /* Name.Variable.Instance */
+        .codehilite .il { color: #009999 } /* Literal.Number.Integer.Long */
+        
+        /* Custom styles */
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        .container-fluid {
+            padding: 2rem;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            margin-bottom: 2rem;
+            height: calc(100vh - 8rem);
+            overflow-y: auto;
+        }
+        .preview-card {
+            position: sticky;
+            top: 2rem;
+        }
+        .preview-area {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            height: calc(100vh - 12rem);
+            overflow-y: auto;
+        }
+        .preview-area pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        .preview-area code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.9em;
+            tab-size: 4;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #0d6efd;
+        }
+        .references-container {
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .reference-item {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .select2-container {
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center mb-4">Knowledge Base Manager</h1>
+        
+        <ul class="nav nav-pills mb-4 justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="til-tab" data-bs-toggle="pill" data-bs-target="#til" type="button">Add TIL</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="totd-tab" data-bs-toggle="pill" data-bs-target="#totd" type="button">Add TOTD</button>
+            </li>
+        </ul>
+        
+        <div class="tab-content">
+            <!-- TIL Form -->
+            <div class="tab-pane fade show active" id="til">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="tilForm">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Title</label>
+                                                <input type="text" class="form-control" name="title" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Date</label>
+                                                <input type="date" class="form-control" name="date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Notes Name</label>
+                                        <input type="text" class="form-control" name="notes_name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Tags</label>
+                                        <select class="form-control tags-select" id="tilTagsSelect" name="tags" multiple required>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Difficulty</label>
+                                        <select class="form-control" name="difficulty" required>
+                                            <option value="easy">Easy</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="hard">Hard</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">References</label>
+                                        <div class="references-container">
+                                            <div id="referencesContainer"></div>
+                                            <button type="button" class="btn btn-secondary" id="addReference">Add Reference</button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Content</label>
+                                        <textarea class="form-control" rows="3" name="content" required></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Notes (Markdown)</label>
+                                        <textarea class="form-control markdown-input" rows="10" name="notes" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card preview-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Preview</h5>
+                                <div class="preview-area"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TOTD Form -->
+            <div class="tab-pane fade" id="totd">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="totdForm">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Tool Name</label>
+                                                <input type="text" class="form-control" name="name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Date</label>
+                                                <input type="date" class="form-control" name="date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Notes Name</label>
+                                        <input type="text" class="form-control" name="notes_name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Category</label>
+                                        <select class="form-select" name="category" id="categorySelect" required>
+                                            <option value="" disabled selected>Select a category</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Tags</label>
+                                        <select class="form-control tags-select" id="totdTagsSelect" name="tags" multiple required>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Short Description</label>
+                                        <input type="text" class="form-control" name="description" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Notes (Markdown)</label>
+                                        <textarea class="form-control markdown-input" rows="10" name="notes" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card preview-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Preview</h5>
+                                <div class="preview-area"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Select2 for TIL tags
+            fetch('/get_tags')
+                .then(response => response.json())
+                .then(tags => {
+                    $('#tilTagsSelect').select2({
+                        tags: true,
+                        tokenSeparators: [',', ' '],
+                        data: tags.map(tag => ({ id: tag, text: tag }))
+                    });
+                });
+
+            // Initialize Select2 for TOTD tags
+            fetch('/get_tool_tags')
+                .then(response => response.json())
+                .then(tags => {
+                    $('#totdTagsSelect').select2({
+                        tags: true,
+                        tokenSeparators: [',', ' '],
+                        data: tags.map(tag => ({ id: tag, text: tag }))
+                    });
+                });
+                
+            // Load categories for TOTD form
+            fetch('/get_categories')
+                .then(response => response.json())
+                .then(categories => {
+                    const categorySelect = document.getElementById('categorySelect');
+                    categories.forEach(category => {
+                        const option = document.createElement('option');
+                        option.value = category;
+                        option.textContent = category;
+                        categorySelect.appendChild(option);
+                    });
+                });
+        });
+    </script>
+</body>
+</html>
