@@ -18,15 +18,27 @@ def print_header(text):
     console.print(Panel(text, style="bold blue", border_style="blue"))
 
 def load_existing_tags():
-    try:
-        with open("data/today_learnt.json", "r") as f:
-            data = json.load(f)
-            tags = set()
-            for entry in data["entries"]:
-                tags.update(entry.get("tags", []))
-            return sorted(list(tags))
-    except (FileNotFoundError, json.JSONDecodeError):
-        return []
+    tags = set()
+    base_dir = os.path.join("data", "til_notes")
+    
+    # Walk through all year/month directories
+    for year in os.listdir(base_dir):
+        year_dir = os.path.join(base_dir, year)
+        if os.path.isdir(year_dir):
+            for month in os.listdir(year_dir):
+                month_dir = os.path.join(year_dir, month)
+                if os.path.isdir(month_dir):
+                    entries_file = os.path.join(month_dir, "entries.json")
+                    if os.path.exists(entries_file):
+                        try:
+                            with open(entries_file, "r") as f:
+                                data = json.load(f)
+                                for entry in data.get("entries", []):
+                                    tags.update(entry.get("tags", []))
+                        except (json.JSONDecodeError, FileNotFoundError):
+                            continue
+    
+    return sorted(list(tags))
 
 def get_input(prompt_text, required=True, default=None, completer=None):
     while True:
@@ -89,39 +101,37 @@ def get_notes_path():
     if not Confirm.ask("\nDo you want to add notes?", default=False):
         return None
     
-    console.print("\n[bold]NOTE:[/bold] Select a note from the notes directory")
+    # Get current year and month for notes directory
+    now = datetime.now()
+    year = now.strftime("%Y")
+    month = now.strftime("%b").lower()
     
-    def path_filter(path):
-        return path.endswith('.md')
-
-    # Change to notes directory temporarily to get proper path completion
-    original_dir = os.getcwd()
-    notes_dir = os.path.join('data', 'notes')
-    os.chdir(notes_dir)
+    notes_dir = os.path.join("data", "til_notes", year, month)
+    os.makedirs(notes_dir, exist_ok=True)
     
+    console.print(f"\n[bold]NOTE:[/bold] Notes will be saved in {notes_dir}")
+    
+    # Create a markdown file based on the title
+    title = get_input("Note filename (without .md)")
+    filename = f"{title.lower().replace(' ', '_')}.md"
+    
+    notes_path = os.path.join(notes_dir, filename)
+    
+    # Get note content
+    console.print("\n[bold]Enter note content[/bold] (press Ctrl+D or Ctrl+Z when done):")
+    content = []
     try:
-        path_completer = PathCompleter(
-            only_directories=False,
-            file_filter=path_filter
-        )
-        
         while True:
-            path = get_input("Select note (press Tab for suggestions)", required=False, completer=path_completer)
-            if not path:
-                return None
-            
-            # Check if file exists in notes directory
-            if os.path.exists(path):
-                # Return path relative to data directory with ../data prefix
-                return os.path.join("..", "data", "notes", path)
-            else:
-                console.print(f"Warning: File '{path}' does not exist in notes directory!", style="yellow")
-                if not Confirm.ask("Continue anyway?", default=False):
-                    continue
-                return os.path.join("..", "data", "notes", path)
-    finally:
-        # Always restore the original directory
-        os.chdir(original_dir)
+            line = input()
+            content.append(line)
+    except EOFError:
+        pass
+    
+    # Write content to file
+    with open(notes_path, "w") as f:
+        f.write("\n".join(content))
+    
+    return filename
 
 def add_til_entry():
     clear_screen()
@@ -132,7 +142,7 @@ def add_til_entry():
     tags = get_tags()
     date = get_date()
     difficulty = get_difficulty()
-    notes_path = get_notes_path()
+    notes_md = get_notes_path()
     references = get_references()
     
     return {
@@ -142,29 +152,35 @@ def add_til_entry():
         "references": references,
         "difficulty": difficulty,
         "tags": tags,
-        "notes_md": notes_path
+        "notes_md": notes_md
     }
 
 def main():
     try:
         entry = add_til_entry()
         
-        # Load existing entries
-        til_file = os.path.join("data", "today_learnt.json")
+        # Get year and month from entry date
+        entry_date = datetime.strptime(entry["date"], "%Y-%m-%d")
+        year = entry_date.strftime("%Y")
+        month = entry_date.strftime("%b").lower()
+        
+        # Create directory structure
+        entry_dir = os.path.join("data", "til_notes", year, month)
+        os.makedirs(entry_dir, exist_ok=True)
+        
+        # Load or create entries.json for this month
+        entries_file = os.path.join(entry_dir, "entries.json")
         try:
-            with open(til_file, 'r') as f:
+            with open(entries_file, 'r') as f:
                 data = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             data = {"entries": []}
         
         # Add new entry
-        data["entries"].append(entry)
-        
-        # Sort entries by date (newest first)
-        data["entries"].sort(key=lambda x: x["date"], reverse=True)
+        data["entries"].insert(0, entry)  # Add to beginning of list
         
         # Save updated entries
-        with open(til_file, "w") as f:
+        with open(entries_file, "w") as f:
             json.dump(data, f, indent=2)
         
         clear_screen()
@@ -176,18 +192,19 @@ def main():
         console.print(f"Tags: {', '.join(entry['tags'])}")
         console.print(f"Date: {entry['date']}")
         console.print(f"Difficulty: {entry['difficulty']}")
+        console.print(f"Saved to: {entries_file}")
         
         # Ask before git operations
         if Confirm.ask("\nDo you want to commit and push these changes to git?", default=True):
             console.print("\n[bold]Running git commands...[/bold]")
             
             if entry.get('notes_md'):
-                notes_path = os.path.join("data", entry['notes_md'])
-                os.system(f'git add {notes_path}')
+                notes_path = os.path.join(entry_dir, entry['notes_md'])
+                os.system(f'git add "{notes_path}"')
                 console.print(f"Added notes file: {notes_path}", style="green")
             
-            os.system('git add data/today_learnt.json')
-            console.print("Added today_learnt.json", style="green")
+            os.system(f'git add "{entries_file}"')
+            console.print(f"Added {entries_file}", style="green")
             
             commit_msg = f'Added TIL: {entry["title"]}'
             os.system(f'git commit -m "{commit_msg}"')
