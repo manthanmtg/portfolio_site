@@ -458,29 +458,26 @@
             <div class="mb-8 space-y-4">
                 <div class="flex flex-wrap gap-4">
                     <div class="relative flex gap-2">
-                        <select id="timeFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
-                            <option value="all">All Time</option>
+                        <select id="yearFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="all">All Years</option>
                             <option value="2024">2024</option>
                             <option value="2023">2023</option>
                         </select>
-                        <select id="monthFilter" class="hidden bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <select id="monthFilter" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary">
                             <option value="all">All Months</option>
-                            <option value="0">January</option>
-                            <option value="1">February</option>
-                            <option value="2">March</option>
-                            <option value="3">April</option>
-                            <option value="4">May</option>
-                            <option value="5">June</option>
-                            <option value="6">July</option>
-                            <option value="7">August</option>
-                            <option value="8">September</option>
-                            <option value="9">October</option>
-                            <option value="10">November</option>
-                            <option value="11">December</option>
+                            <option value="jan">January</option>
+                            <option value="feb">February</option>
+                            <option value="mar">March</option>
+                            <option value="apr">April</option>
+                            <option value="may">May</option>
+                            <option value="jun">June</option>
+                            <option value="jul">July</option>
+                            <option value="aug">August</option>
+                            <option value="sep">September</option>
+                            <option value="oct">October</option>
+                            <option value="nov">November</option>
+                            <option value="dec">December</option>
                         </select>
-                        <div class="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                            <i class="fas fa-chevron-down text-gray-400"></i>
-                        </div>
                     </div>
 
                     <!-- Streak Counter -->
@@ -520,14 +517,13 @@
 
                     <div class="relative flex-grow max-w-md">
                         <input type="text" id="searchInput" placeholder="Search entries..." 
-                               class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
-                        <div class="absolute right-12 top-1/2 transform -translate-y-1/2">
-                            <i class="fas fa-search text-gray-400"></i>
-                        </div>
+                            class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
                 </div>
 
-                <div id="tagCloud" class="flex flex-wrap gap-2">
+                <!-- Tag Cloud -->
+                <div id="tagContainer" class="flex flex-wrap gap-2">
                     <!-- Tags will be dynamically inserted here -->
                 </div>
             </div>
@@ -603,6 +599,26 @@
         });
     </script>
     <script>
+        document.addEventListener('entriesLoaded', () => {
+            const streakCount = calculateStreak(allEntries);
+            const streakElement = document.querySelector('#streakCount');
+            if (streakElement) {
+                streakElement.textContent = streakCount;
+                
+                // Add animation classes based on streak count
+                if (streakCount >= 30) {
+                    streakElement.classList.add('master-streak');
+                    streakElement.parentElement.classList.add('master-container');
+                } else if (streakCount >= 14) {
+                    streakElement.classList.add('power-streak');
+                    streakElement.parentElement.classList.add('power-container');
+                } else if (streakCount >= 7) {
+                    streakElement.classList.add('hot-streak');
+                    streakElement.parentElement.classList.add('hot-container');
+                }
+            }
+        });
+
         function calculateStreak(entries) {
             if (!entries || entries.length === 0) return 0;
             
@@ -641,42 +657,6 @@
             
             return streak;
         }
-
-        // Update streak count when entries are loaded
-        fetch('../data/today_learnt.json')
-            .then(response => response.json())
-            .then(data => {
-                const streak = calculateStreak(data.entries);
-                const streakElement = document.getElementById('streakCount');
-                const streakIcon = document.getElementById('streakIcon');
-                const streakContainer = document.getElementById('streakContainer');
-                
-                streakElement.textContent = streak;
-                streakElement.classList.add('animate-in');
-
-                // Remove any existing streak classes
-                streakIcon.className = 'fas fa-fire text-sm mr-2';
-                streakContainer.className = 'streak-container relative flex items-center h-[42px] rounded-lg px-3 text-white shadow-lg transition-all duration-300 cursor-help';
-
-                // Apply appropriate streak level
-                if (streak >= 30) {
-                    streakIcon.classList.add('streak-master');
-                    streakContainer.classList.add('container-master');
-                } else if (streak >= 16) {
-                    streakIcon.classList.add('streak-expert');
-                    streakContainer.classList.add('container-expert');
-                } else if (streak >= 9) {
-                    streakIcon.classList.add('streak-advanced');
-                    streakContainer.classList.add('container-advanced');
-                } else if (streak >= 4) {
-                    streakIcon.classList.add('streak-regular');
-                    streakContainer.classList.add('container-regular');
-                } else if (streak >= 1) {
-                    streakIcon.classList.add('streak-beginner');
-                    streakContainer.classList.add('container-beginner');
-                }
-            })
-            .catch(error => console.error('Error loading streak data:', error));
     </script>
 </body>
 </html>
