@@ -76,6 +76,18 @@
         }
       ],
       "notes_path": "zip.md"
+    },
+    {
+      "title": "nslookup",
+      "date": "2024-12-20",
+      "category": "cli",
+      "tags": [
+        "cli",
+        "dev-tools",
+        "productivity"
+      ],
+      "content": "Query DNS records",
+      "notes_path": "nslookup.md"
     }
   ]
 }
