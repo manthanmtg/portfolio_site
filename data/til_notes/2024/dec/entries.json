@@ -234,6 +234,22 @@
         "data-platform"
       ],
       "notes_md": "dbt_sematic_layer_yt_video.md"
+    },
+    {
+      "title": "Python Virtual Environments: What? Why? How?",
+      "date": "2024-12-21",
+      "tags": [
+        "python"
+      ],
+      "difficulty": "easy",
+      "references": [
+        {
+          "title": "Article",
+          "url": "https://medium.com/@manthan.gowda/python-virtual-environments-what-why-how-58b288e0f605"
+        }
+      ],
+      "content": "A virtual environment in Python is an isolated, self-contained directory that contains a specific Python installation and its associated packages.",
+      "notes_md": "pvenv.md"
     }
   ]
 }
