@@ -3,6 +3,16 @@
     "description": "Sharing my thoughts, experiences, and technical insights",
     "blogs": [
         {
+            "type": "single",
+            "title": "Python Virtual Environments: What? Why? How?",
+            "description": "A virtual environment in Python is an isolated, self-contained directory that contains a specific Python installation and its associated packages.",
+            "date": "2024-12-21",
+            "link": "https://medium.com/@manthan.gowda/python-virtual-environments-what-why-how-58b288e0f605",
+            "tags": [
+                "python"
+            ]
+        },
+        {
             "type": "series",
             "title": "Understanding Data Analytics Building Blocks",
             "description": "A Comprehensive Guide to Data Analytics Building Blocks",
