@@ -191,7 +191,7 @@
       "notes_md": "mastering_python_project_management_with_uv.md"
     },
     {
-      "date": "2024-12-08",
+      "date": "2024-12-10",
       "title": "What is an API Gateway?",
       "content": "An in-depth guide to understanding API Gateways - from their core purpose of managing communication between clients and microservices to practical implementation details like authentication, rate limiting, and request routing.",
       "references": [
