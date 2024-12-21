@@ -167,7 +167,7 @@
       "notes_md": "why_one_process_per_container.md"
     },
     {
-      "date": "2024-12-08",
+      "date": "2024-12-19",
       "title": "Mastering Python Project Management with uv",
       "content": "Learned about new way of project management in Python using uv. Learnt, it is very fast compared to normal pip operations.",
       "references": [
