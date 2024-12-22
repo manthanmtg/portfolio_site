@@ -250,6 +250,22 @@
       ],
       "content": "A virtual environment in Python is an isolated, self-contained directory that contains a specific Python installation and its associated packages.",
       "notes_md": "pvenv.md"
+    },
+    {
+      "title": "The Sidecar Pattern Explained: Decoupling Operational Features",
+      "date": "2024-12-22",
+      "tags": [
+        "system-design"
+      ],
+      "difficulty": "medium",
+      "references": [
+        {
+          "title": "ByteByteGo Article",
+          "url": "https://substack.com/home/post/p-153337805"
+        }
+      ],
+      "content": "The Sidecar Pattern attaches a secondary helper component to a main application to provide support services independently.",
+      "notes_md": "sidecar_pattern.md"
     }
   ]
 }
