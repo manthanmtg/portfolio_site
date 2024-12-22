@@ -57,10 +57,10 @@ containers:
 ```
 
 ### Security and Auth 🔒
-- **SSL/TLS Termination**
-- **OAuth Token Management**
-- **Certificate Rotation**
-- **Access Control**
+- SSL/TLS Termination
+- OAuth Token Management
+- Certificate Rotation**
+- Access Control
 
 ### Configuration Management ⚙️
 - Dynamic config updates
@@ -69,10 +69,10 @@ containers:
 - Secrets management
 
 ### Service Mesh Components 🕸️
-- **Traffic Management**
-- **Service Discovery**
-- **Load Balancing**
-- **Circuit Breaking**
+- Traffic Management
+- Service Discovery
+- Load Balancing
+- Circuit Breaking
 
 ## 3. Architectural Components 🏗️
 ### Primary Application Container 📦
