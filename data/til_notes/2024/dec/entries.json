@@ -266,6 +266,18 @@
       ],
       "content": "The Sidecar Pattern attaches a secondary helper component to a main application to provide support services independently.",
       "notes_md": "sidecar_pattern.md"
+    },
+    {
+      "title": "8 Basic Principles for DevOps and Cloud Engineering Career Success",
+      "date": "2024-12-23",
+      "tags": [
+        "system-design",
+        "devops"
+      ],
+      "difficulty": "medium",
+      "references": [],
+      "content": "In the rapidly evolving fields of DevOps and Cloud Engineering, adhering to key principles can significantly enhance your career success. These principles provide a framework for efficiency, reliability, and scalability while enabling you to navigate complex systems effectively.",
+      "notes_md": "8_pri_devops_success.md"
     }
   ]
 }
