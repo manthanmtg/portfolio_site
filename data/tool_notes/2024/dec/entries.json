@@ -88,6 +88,19 @@
       ],
       "content": "Query DNS records",
       "notes_path": "nslookup.md"
+    },
+    {
+      "title": "k9s",
+      "date": "2024-12-23",
+      "category": "cli",
+      "tags": [
+        "cli",
+        "productivity",
+        "kubernetes",
+        "cloud-native"
+      ],
+      "content": "K9s is a powerful open-source terminal-based user interface designed to interact with Kubernetes clusters.",
+      "notes_path": "k9s.md"
     }
   ]
 }
