@@ -99,6 +99,16 @@
         "kubernetes",
         "cloud-native"
       ],
+      "references": [
+        {
+          "title": "K9s GitHub",
+          "url": "https://github.com/derailed/k9s"
+        },
+        {
+          "title": "K9s Docs",
+          "url": "https://k9scli.io/"
+        }
+      ],
       "content": "K9s is a powerful open-source terminal-based user interface designed to interact with Kubernetes clusters.",
       "notes_path": "k9s.md"
     }
