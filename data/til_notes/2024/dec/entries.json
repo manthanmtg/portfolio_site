@@ -278,6 +278,23 @@
       "references": [],
       "content": "In the rapidly evolving fields of DevOps and Cloud Engineering, adhering to key principles can significantly enhance your career success. These principles provide a framework for efficiency, reliability, and scalability while enabling you to navigate complex systems effectively.",
       "notes_md": "8_pri_devops_success.md"
+    },
+    {
+      "title": "Avoid SELECT *, even on a single-column tables",
+      "date": "2024-12-24",
+      "tags": [
+        "dbms",
+        "system-design"
+      ],
+      "difficulty": "easy",
+      "references": [
+        {
+          "title": "Medium Article",
+          "url": "https://medium.com/@hnasr/avoid-select-even-on-a-single-column-tables-d6deed7b4aee"
+        }
+      ],
+      "content": "Avoid using SELECT * in database queries, even on single-column tables, to prevent performance issues and inefficiencies",
+      "notes_md": "avoid_select_star.md"
     }
   ]
 }
