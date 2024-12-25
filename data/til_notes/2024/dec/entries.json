@@ -1,24 +1,23 @@
 {
   "entries": [
     {
-      "date": "2024-12-20",
-      "title": "What is Latency and How to Reduce it?",
-      "content": "Algomaster Newsletter: on how to reduce latency in the system",
-      "references": [
-        {
-          "title": "Article",
-          "url": "https://blog.algomaster.io/p/latency-and-how-to-reduce-it"
-        }
-      ],
-      "difficulty": "medium",
+      "title": "What is Service Discovery?",
+      "date": "2024-12-25",
       "tags": [
         "system-design"
       ],
-      "notes_md": "latency_and_reduce.md"
-    },
-    {
-      "date": "2024-12-18",
-      "title": "Python tip: always specify your file encoding",
+      "difficulty": "medium",
+      "references": [
+        {
+          "title": "AlgoMaster Article",
+          "url": "https://blog.algomaster.io/p/service-discovery-in-distributed-systems"
+        }
+      ],
+      "content": "Service discovery is a mechanism that allows services in a distributed system to find and communicate with each other dynamically.",
+      "notes_md": "service_discovery_ashish.md"
+    }
+  ]
+}ding",
       "content": "Always specify file encoding when opening files in Python to prevent cross-platform text handling errors between different operating systems.",
       "references": [
         {
@@ -316,6 +315,17 @@
       ],
       "content": "Focus can vary daily, making it crucial to adopt effective strategies for consistent concentration. These tips are designed for everyone, including those with ADHD, to enhance focus and productivity.",
       "notes_md": "7_tips_improve_daily_focus.md"
+    },
+    {
+      "title": "What is Service Discovery?",
+      "date": "2024-12-25",
+      "tags": [
+        "system-design"
+      ],
+      "difficulty": "medium",
+      "references": [],
+      "content": "Service discovery is a mechanism that allows services in a distributed system to find and communicate with each other dynamically.",
+      "notes_md": "service_discovery_ashish.md"
     }
   ]
 }
