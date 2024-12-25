@@ -156,6 +156,13 @@
                 "description": "A real-time file difference viewer that automatically updates when files change. Live Differ provides an intuitive web interface for comparing files side-by-side with real-time updates when either file is modified.",
                 "techStack": ["Python", "Flask", "CSS", "HTML", "JavaScript"],
                 "link": "https://github.com/manthanmtg/live_differ"
+            },
+            {
+                "title": "StayUp",
+                "description": "A modern Python package to prevent system sleep by simulating small mouse movements. Perfect for keeping your system awake during long downloads, installations, or when you need to maintain an active system state. 💻✨",
+                "techStack": ["Python"],
+                "link": "https://pypi.org/project/stayup/"
+
             }
         ]
     },
