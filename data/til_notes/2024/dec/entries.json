@@ -295,6 +295,23 @@
       ],
       "content": "Avoid using SELECT * in database queries, even on single-column tables, to prevent performance issues and inefficiencies",
       "notes_md": "avoid_select_star.md"
+    },
+    {
+      "title": "7 Simple Tips to Improve Daily Focus",
+      "date": "2024-12-25",
+      "tags": [
+        "productivity",
+        "self-help"
+      ],
+      "difficulty": "easy",
+      "references": [],
+      "content": "Focus can vary daily, making it crucial to adopt effective strategies for consistent concentration. These tips are designed for everyone, including those with ADHD, to enhance focus and productivity.",
+      "notes_md": "7_tips_improve_daily_focus.md"
+    }
+  ]
+}     ],
+      "content": "Focus can vary daily, making it crucial to adopt effective strategies for consistent concentration. These tips are designed for everyone, including those with ADHD, to enhance focus and productivity.",
+      "notes_md": "7_tips_improve_daily_focus.md"
     }
   ]
 }
