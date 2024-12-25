@@ -304,7 +304,16 @@
         "self-help"
       ],
       "difficulty": "easy",
-      "references": [],
+      "references": [
+        {
+          "title": "Medium Article",
+          "url": "https://medium.com/twosapp/7-simple-tips-to-improve-your-daily-focus-6300d93effc8"
+        },
+        {
+          "title": "TwosApp List",
+          "url": "https://www.twosapp.com/664640cced49084f4794ebf3"
+        }
+      ],
       "content": "Focus can vary daily, making it crucial to adopt effective strategies for consistent concentration. These tips are designed for everyone, including those with ADHD, to enhance focus and productivity.",
       "notes_md": "7_tips_improve_daily_focus.md"
     }
