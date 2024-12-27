@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "title": "How to Choose the Right Database in a System Design Interview",
+      "date": "2024-12-26",
+      "tags": [
+        "dbms",
+        "system-design"
+      ],
+      "difficulty": "medium",
+      "references": [
+        {
+          "title": "AlgoMaster Article",
+          "url": "https://blog.algomaster.io/p/how-to-choose-the-right-database?utm_source=post-email-title&publication_id=2202268&post_id=152506708&utm_campaign=email-post-title&isFreemail=true&r=as3y0&triedRedirect=true&utm_medium=email"
+        }
+      ],
+      "content": "Choosing the wrong database can lead to high latency, data loss, or even system downtime.",
+      "notes_md": "choose_right_database.md"
+    },
+    {
       "title": "What is Service Discovery?",
       "date": "2024-12-26",
       "tags": [
