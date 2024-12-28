@@ -1,6 +1,19 @@
 {
   "entries": [
     {
+      "title": "What is Clean Code?",
+      "date": "2024-12-28",
+      "tags": [
+        "system-design",
+        "coding",
+        "programming"
+      ],
+      "difficulty": "medium",
+      "references": [],
+      "content": "Clean code is code that is clear, understandable and maintainable. In this chapter, we'll explore what that means and why it's important.",
+      "notes_md": "what_is_clean_code.md"
+    },
+    {
       "title": "What is a Vector Database?",
       "date": "2024-12-28",
       "tags": [
