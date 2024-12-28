@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "title": "What is a Vector Database?",
+      "date": "2024-12-28",
+      "tags": [
+        "dbms",
+        "artificial-intelligence",
+        "machine-learning"
+      ],
+      "difficulty": "medium",
+      "references": [
+        {
+          "title": "Article by `Better Engineers`",
+          "url": "https://betterengineers.substack.com/p/what-is-a-vector-database-how-does?publication_id=2797179&post_id=152837514&isFreemail=true&r=as3y0&triedRedirect=true"
+        }
+      ],
+      "content": "Vector databases store high-dimensional data as vectors, allowing for efficient similarity search and retrieval.",
+      "notes_md": "what_is_vector_database.md"
+    },
+    {
       "title": "Concurrency vs. Parallelism",
       "date": "2024-12-27",
       "tags": [
