@@ -9,7 +9,12 @@
         "programming"
       ],
       "difficulty": "medium",
-      "references": [],
+      "references": [
+        {
+          "title": "freeCodeCamp Article",
+          "url": "https://www.freecodecamp.org/news/how-to-write-clean-code/"
+        }
+      ],
       "content": "Clean code is code that is clear, understandable and maintainable. In this chapter, we'll explore what that means and why it's important.",
       "notes_md": "what_is_clean_code.md"
     },
