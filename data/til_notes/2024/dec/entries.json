@@ -1,6 +1,22 @@
 {
   "entries": [
     {
+      "title": "PEP 8 – Style Guide for Python Code",
+      "date": "2024-12-29",
+      "tags": [
+        "python"
+      ],
+      "difficulty": "easy",
+      "references": [
+        {
+          "title": "PEP-8 Official Doc",
+          "url": "https://peps.python.org/pep-0008/"
+        }
+      ],
+      "content": "PEP 8 provides conventions to ensure that Python code is consistent, readable, and maintainable. It emphasizes readability and flexibility while encouraging project-specific adaptations.",
+      "notes_md": "pep8_python.md"
+    },
+    {
       "title": "What is Clean Code?",
       "date": "2024-12-28",
       "tags": [
