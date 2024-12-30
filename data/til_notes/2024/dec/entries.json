@@ -7,7 +7,12 @@
         "system-design"
       ],
       "difficulty": "medium",
-      "references": [],
+      "references": [
+        {
+          "title": "Article(Byte-Sized Deisgn)",
+          "url": "https://bytesizeddesign.substack.com/p/the-design-mindsets-every-engineer?utm_source=post-email-title&publication_id=1499683&post_id=153796371&utm_campaign=email-post-title&isFreemail=true&r=as3y0&triedRedirect=true&utm_medium=email"
+        }
+      ],
       "content": "A design mindset is a key guide in any software engineer’s career especially when building complex of systems. Adopting the right mindset will help you focus on what matters most while staying adaptable in the face of change.",
       "notes_md": "design_mindsets_every_dev_know.md"
     },
