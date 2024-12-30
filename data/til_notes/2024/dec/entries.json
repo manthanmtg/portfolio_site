@@ -1,6 +1,17 @@
 {
   "entries": [
     {
+      "title": "The Design Mindsets Every Engineer Should Know And Use",
+      "date": "2024-12-30",
+      "tags": [
+        "system-design"
+      ],
+      "difficulty": "medium",
+      "references": [],
+      "content": "A design mindset is a key guide in any software engineer’s career especially when building complex of systems. Adopting the right mindset will help you focus on what matters most while staying adaptable in the face of change.",
+      "notes_md": "design_mindsets_every_dev_know.md"
+    },
+    {
       "title": "PEP 8 – Style Guide for Python Code",
       "date": "2024-12-29",
       "tags": [
