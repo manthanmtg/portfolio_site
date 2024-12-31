@@ -27,6 +27,17 @@
                         "big-data",
                         "data-modeling"
                     ]
+                },
+                {
+                    "title": "Fact Tables and Dimension Tables",
+                    "description": "Breaking Down Fact Tables and Dimension Tables for Better Data Understanding",
+                    "date": "2024-12-31",
+                    "link": "https://medium.com/@manthan.gowda/understanding-data-analytics-building-blocks-fact-tables-and-dimension-tables-e89010a53326",
+                    "tags": [
+                        "data-analytics",
+                        "big-data",
+                        "data-modeling"
+                    ]
                 }
             ]
         },
