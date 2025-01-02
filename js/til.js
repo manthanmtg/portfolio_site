@@ -28,7 +28,7 @@ async function loadEntriesForYearMonth(year, month) {
     allEntries = [];
     
     // Get current date for comparison
-    const now = new Date('2024-12-21T00:21:07+05:30');
+    const now = new Date();
     const currentYear = now.getFullYear().toString();
     const currentMonth = getMonthName(now).toLowerCase();
     
@@ -36,7 +36,7 @@ async function loadEntriesForYearMonth(year, month) {
     const streakContainer = document.getElementById('streakContainer');
     if (streakContainer) {
         if ((year === currentYear && (month === currentMonth || month === 'all')) || 
-            (year === 'all' && currentYear === '2024')) {
+            (year === 'all' && currentYear === now.getFullYear().toString())) {
             streakContainer.style.display = 'flex';
         } else {
             streakContainer.style.display = 'none';
@@ -74,7 +74,7 @@ async function loadEntriesForYearMonth(year, month) {
             }
         } else if (year === 'all') {
             // Load all years and months
-            const years = ['2023', '2024'];
+            const years = ['2023', '2024', '2025'];
             const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
             
             for (const y of years) {
@@ -155,7 +155,7 @@ function calculateStreak(entries) {
     const sortedEntries = [...entries].sort((a, b) => new Date(b.date) - new Date(a.date));
     
     // Get current date at midnight for consistent comparison
-    const now = new Date('2024-12-21T00:18:05+05:30');
+    const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     
     // Get the most recent entry's date
@@ -349,7 +349,7 @@ function setupEventListeners() {
 function updateMonthOptions(selectedYear, currentMonth) {
     const monthFilter = document.getElementById('monthFilter');
     const options = monthFilter.options;
-    const currentDate = new Date('2024-12-21T00:08:27+05:30');
+    const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     
     // First option is always available (All Months)
@@ -592,22 +592,23 @@ async function showNotes(notesPath) {
 
 // Initialize the page
 async function initializePage() {
-    const currentDate = new Date('2024-12-21T00:15:23+05:30');
-    const currentYear = currentDate.getFullYear().toString();
-    const currentMonth = getMonthName(currentDate).toLowerCase();
+    // Set default selections in dropdowns
+    const yearSelect = document.getElementById('yearSelect');
+    const monthSelect = document.getElementById('monthSelect');
     
-    // Set default values
-    const yearFilter = document.getElementById('yearFilter');
-    const monthFilter = document.getElementById('monthFilter');
+    if (yearSelect) yearSelect.value = new Date().getFullYear().toString();
+    if (monthSelect) {
+        const currentMonth = getMonthName(new Date()).toLowerCase();
+        updateMonthOptions(new Date().getFullYear().toString(), currentMonth);
+        monthSelect.value = currentMonth;
+    }
+
+    // Load entries for the current month
+    await loadEntriesForYearMonth(new Date().getFullYear().toString(), getMonthName(new Date()).toLowerCase());
     
-    yearFilter.value = currentYear;
-    monthFilter.value = currentMonth;
-    
-    // Load entries for current year and month
-    await loadEntriesForYearMonth(currentYear, currentMonth);
-    
-    // Set up event listeners
+    // Set up event listeners after initial load
     setupEventListeners();
+    setupNotesModal();
 }
 
 // Start the page
