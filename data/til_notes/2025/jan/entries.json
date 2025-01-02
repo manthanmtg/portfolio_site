@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "title": "The Architecture of Canva's Data Platform",
+      "date": "2025-01-02",
+      "tags": [
+        "system-design"
+      ],
+      "difficulty": "medium",
+      "references": [],
+      "content": "Founded in 2013, Canva's rapid growth to hundreds of millions of users worldwide has presented significant engineering challenges, particularly in its data platform.",
+      "notes_md": "canva_data_platform.md"
+    }
+  ]
+}
