@@ -1,6 +1,17 @@
 {
   "entries": [
     {
+      "title": "If you're ambitious but lazy, read this...",
+      "date": "2025-01-19",
+      "tags": [
+        "self-help"
+      ],
+      "difficulty": "easy",
+      "references": [],
+      "content": "We’ve all been there: brimming with big dreams and aspirations, yet stuck in a cycle of laziness and procrastination. If this resonates with you, you're not alone. The good news? You can break this cycle and transform your ambitions into reality! Let’s unpack how. 🔓✨",
+      "notes_md": "amb_lazy.md"
+    },
+    {
       "title": "The Architecture of Canva's Data Platform",
       "date": "2025-01-02",
       "tags": [
