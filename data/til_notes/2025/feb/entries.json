@@ -1,0 +1,33 @@
+{
+  "entries": [
+    {
+      "title": "I was bad at Data Structures and Algorithms. Then I did this.",
+      "date": "2025-02-20",
+      "tags": [
+        "self-help",
+        "dsa",
+        "problem-solving"
+      ],
+      "difficulty": "easy",
+      "references": [
+        {
+          "title": "Youtube Video by Andrew Codesmith",
+          "url": "https://www.youtube.com/watch?v=7kf1SACqlRw"
+        }
+      ],
+      "content": "This article provides a step-by-step guide, based on personal experience, to mastering Data Structures and Algorithms, emphasizing consistent practice, a beginner-friendly approach, and efficient use of resources, even without a formal computer science background.",
+      "notes_md": "bad_at_dsa_do_this.md"
+    },
+    {
+      "title": "What is Causal Order?",
+      "date": "2025-02-08",
+      "tags": [
+        "system-design"
+      ],
+      "difficulty": "medium",
+      "references": [],
+      "content": "Causal order refers to the sequence of events where one event influences or causes another. It ensures that events are processed in a manner that respects their cause-and-effect relationships.",
+      "notes_md": "causal_order.md"
+    }
+  ]
+}
